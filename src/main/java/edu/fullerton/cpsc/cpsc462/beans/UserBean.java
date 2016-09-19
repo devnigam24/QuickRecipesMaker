@@ -9,20 +9,40 @@ package edu.fullerton.cpsc.cpsc462.beans;
  */
 public class UserBean {
 	private String userName;
+	private String userFirstName;
+	private String userLastName;
+	private String userEmailID;
 
-	/**
-	 * @return the userName
-	 */
 	public String getUserName() {
-		System.out.println("your username  "+userName);
 		return userName;
 	}
 
-	/**
-	 * @param userName the userName to set
-	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getUserFirstName() {
+		return userFirstName;
+	}
+
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
+	}
+
+	public String getUserLastName() {
+		return userLastName;
+	}
+
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
+	}
+
+	public String getUserEmailID() {
+		return userEmailID;
+	}
+
+	public void setUserEmailID(String userEmailID) {
+		this.userEmailID = userEmailID;
 	}
 
 }

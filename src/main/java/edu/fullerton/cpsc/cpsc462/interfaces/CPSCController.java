@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
+import edu.fullerton.cpsc.cpsc462.exception.Cpsc476Exception;
+
 /**
  * @author Devvrat Nigam
  *
  */
 public abstract interface CPSCController{
 	
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.mvc.Controller#handleRequest(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/* 
+	 * handles post request
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	void handleGet(HttpServletRequest req, HttpServletResponse res) throws Exception;
+	String handleGet(HttpServletRequest req, HttpServletResponse res) throws Exception;
 	
-	/* (non-Javadoc)
-	 * @see org.springframework.web.servlet.mvc.Controller#handleRequest(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/* 
+	 * handles post request
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	void handelPost(HttpServletRequest req, HttpServletResponse res) throws Exception;
+	String handelPost(HttpServletRequest req, HttpServletResponse res) throws Exception;
 	
 	/* 
 	 * handles get and post followed request
