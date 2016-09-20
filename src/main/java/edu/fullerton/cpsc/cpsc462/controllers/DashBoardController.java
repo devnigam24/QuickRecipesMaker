@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.fullerton.cpsc.cpsc462.beans.UserBean;
 import edu.fullerton.cpsc.cpsc462.interfaces.CPSCController;
+import edu.fullerton.cpsc.cpsc462.util.CPSC476Util;
 
 /**
  * @author Devvrat Nigam
@@ -31,9 +32,7 @@ public class DashBoardController implements CPSCController {
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res, String viewName)
 			throws Exception {
 		logger.info("Entered in handle request");
-		ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
-		UserBean obj = (UserBean) ac.getBean("userBeanID");
-		obj.getUserName();
+		System.out.println(CPSC476Util.getUserBeanObject("userBeanID").getUserName());
 		System.out.println(viewName.trim());
 		return new ModelAndView("dashboard");
 	}

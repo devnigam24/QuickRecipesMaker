@@ -6,16 +6,19 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 	<bean id="userBeanID" class="edu.fullerton.cpsc.cpsc462.beans.UserBean">
-		<property name="userName" value="devnigam24" />
-		<property name="userFirstName" value="dev" />
-		<property name="userLastName" value="nigam" />
-		<property name="userEmailID" value="devnigam24@gmail.com" />
+		<property name="userName" value="regeAnish" />
+		<property name="userFirstName" value="anish" />
+		<property name="userLastName" value="rege" />
+		<property name="userEmailID" value="regeanish@gmail.com" />
 	</bean>
 	
-	<bean id="mongoID" class="edu.fullerton.cpsc.cpsc462.DAO.MongoDAO">
-		<property name="serverName" value="devnigam24" />
-		<property name="portNumber" value="dev" />
-		<property name="dataBaseName" value="nigam" />
+	<bean id="mongoID" class="edu.fullerton.cpsc.cpsc462.beans.DataBaseBean">
+		<property name="serverName" value="localhost" />
+		<property name="portNumber" value="27017" />
 	</bean>
 
+	<bean id="databaseID" class="edu.fullerton.cpsc.cpsc462.beans.Databases">
+		<property name="signUpCollection" value="userDataBaseBasedOnSignUp" />
+		<property name="loginCollection" value="userDataBaseForLogin" />
+	</bean>
 </beans>
