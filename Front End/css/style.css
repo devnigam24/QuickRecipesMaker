@@ -36,3 +36,13 @@
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+@media only screen and (min-width: 601px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 57px !important;
+    line-height: 64px;
+  }
+  .navbar-fixed {
+    height: 64px;
+  }
+}
