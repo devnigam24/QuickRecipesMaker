@@ -28,7 +28,6 @@ public class DashBoardController implements CPSCController {
 
 	private static final Logger logger = Logger.getLogger(DashBoardController.class);
 
-	@Override
 	public ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res, String viewName)
 			throws Exception {
 		logger.info("Entered in handle request");
@@ -37,14 +36,13 @@ public class DashBoardController implements CPSCController {
 		return new ModelAndView("dashboard");
 	}
 
-	@RequestMapping(value = "dashboard.htm", method = RequestMethod.GET)
+	@RequestMapping(value = "gotoDashBoard", method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("Entered in get request");
 		return "dashboard";
 	}
 
-	@Override
-	@RequestMapping(value = "dashboard.htm", method = RequestMethod.POST)
+	@RequestMapping(value = "gotoDashBoard", method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		logger.info("Entered in post request");
 		return null;

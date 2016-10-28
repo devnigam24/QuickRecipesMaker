@@ -1,2 +1,1 @@
-dev
-<a href="first">click here</a>
+<% response.sendRedirect("app/gotoDashBoard"); %>
