@@ -1,7 +1,0 @@
-*.jsdtscope
-*.prefs
-*.component
-.settings/org.eclipse.wst.common.project.facet.core.xml
-*.container
-*.name
-/target/
