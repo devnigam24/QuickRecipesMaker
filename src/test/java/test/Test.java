@@ -3,9 +3,6 @@
  */
 package test;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import edu.fullerton.cpsc.cpsc462.DAO.MongoDAO;
 import edu.fullerton.cpsc.cpsc462.beans.UserBean;
 import edu.fullerton.cpsc.cpsc462.util.CPSC476Util;
