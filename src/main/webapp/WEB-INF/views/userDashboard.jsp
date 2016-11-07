@@ -114,7 +114,7 @@
 		<div class="modal-content">
 			<h4>New User ?</h4>
 			<div class="row">
-				<form class="col s12">
+				<form class="col s12" action="signUpLogin" method="post" id="SignUpLoginController">
 					<div class="row">
 						<div class="input-field col s6">
 							<input id="first_name" type="text" class="validate"> <label
@@ -151,10 +151,8 @@
 			</div>
 		</div>
 		<div class="modal-footer">
-			<a href="#!"
-				class="modal-action modal-close waves-effect waves-green btn-flat ">Cancle</a>
-			<a href="#!"
-				class="modal-action modal-close waves-effect waves-green btn-flat ">Register</a>
+			<a  class="modal-action modal-close waves-effect waves-green btn-flat ">Cancle</a>
+			<a 	onclick="submitForm('SignUpLoginController')" class="modal-action modal-close waves-effect waves-green btn-flat ">Register</a>
 		</div>
 	</div>
 	<div class="section no-pad-bot" id="index-banner">

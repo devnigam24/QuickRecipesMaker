@@ -26,6 +26,6 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="edu.fullerton.cpsc.cpsc462.controllers" />
+	<context:component-scan base-package="edu.fullerton.cpsc.cpscRecipe.controllers" />
 	<context:property-placeholder location="classpath:ApplicationResources_en.properties"/>
 </beans:beans>

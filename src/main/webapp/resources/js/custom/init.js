@@ -1,7 +1,10 @@
+function aa(log){
+	console.log(log.trim());
+}
 (function($){
   $(function(){
 
-    $('.button-collapse').sideNav();
+    //$('.button-collapse').sideNav();
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
@@ -27,5 +30,9 @@ $('.chips-placeholder').material_chip({
   });
   
  var chip = {
-    tag: 'chip content',
+    tag: 'chip content'
   };
+ 
+ function submitForm(idName){
+	$("#"+idName.trim()).sumbit();
+ }

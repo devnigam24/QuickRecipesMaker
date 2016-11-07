@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.fullerton.cpsc.cpsc462.interfaces;
+package edu.fullerton.cpsc.cpscRecipe.interfaces;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-import edu.fullerton.cpsc.cpsc462.exception.Cpsc476Exception;
+import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
 
 /**
  * @author Devvrat Nigam
@@ -22,16 +22,11 @@ public abstract interface CPSCController{
 	/* 
 	 * handles post request
 	 */
-	String handleGet(HttpServletRequest req, HttpServletResponse res) throws Exception;
+	abstract String handleGet(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	/* 
 	 * handles post request
 	 */
-	String handelPost(HttpServletRequest req, HttpServletResponse res) throws Exception;
-	
-	/* 
-	 * handles get and post followed request
-	 */
-	ModelAndView handleRequest(HttpServletRequest req, HttpServletResponse res,String viewName) throws Exception;
+	abstract String handelPost(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 }

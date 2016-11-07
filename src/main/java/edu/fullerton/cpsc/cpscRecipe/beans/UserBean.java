@@ -1,7 +1,7 @@
 /**
  * 
  */
-package edu.fullerton.cpsc.cpsc462.beans;
+package edu.fullerton.cpsc.cpscRecipe.beans;
 
 /**
  * @author Devvrat Nigam
@@ -9,6 +9,7 @@ package edu.fullerton.cpsc.cpsc462.beans;
  */
 public class UserBean {
 	private String userName;
+	private char[] password;
 	private String userFirstName;
 	private String userLastName;
 	private String userEmailID;
@@ -43,6 +44,14 @@ public class UserBean {
 
 	public void setUserEmailID(String userEmailID) {
 		this.userEmailID = userEmailID;
+	}
+	
+	public char[] getPassword() {
+		return password;
+	}
+
+	public void setPassword(char[] password) {
+		this.password = password;
 	}
 
 }
