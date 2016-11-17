@@ -93,7 +93,7 @@
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-stubs</artifactId>
-            <version>${appengine.target.version}</version>
+            <version>1.9.9</version>
             <scope>test</scope>
         </dependency>
 	</dependencies>
