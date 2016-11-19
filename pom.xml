@@ -7,16 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>RecepieMaker Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-    <parent>
-      <groupId>com.google.cloud.samples</groupId>
-      <artifactId>shared-configuration</artifactId>
-      <version>1.0.0</version>
-   </parent>
 	<properties>
 		<spring.version>4.0.1.RELEASE</spring.version>
-	<appengine.app.version>1</appengine.app.version>
-      <appengine.target.version>1.9.44</appengine.target.version>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<!-- Spring dependencies -->
@@ -53,79 +45,19 @@
 	        <artifactId>mongodb-driver</artifactId>
 	        <version>3.2.2</version>
 	    </dependency>
- <!-- Compile/runtime dependencies -->
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.9.9</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <!-- Test Dependencies -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>1.10.19</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-testing</artifactId>
-            <version>${appengine.target.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-api-stubs</artifactId>
-            <version>1.9.9</version>
-            <scope>test</scope>
-        </dependency>
 	</dependencies>
-<build>
-        <outputDirectory>target/${project.artifactId}/WEB-INF/classes</outputDirectory> 
-                                   
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <archiveClasses>true</archiveClasses>
-                    <webResources>
-                        <!-- in order to interpolate version from pom into appengine-web.xml -->
-                        <resource>
-                            <directory>${basedir}/src/main/webapp/WEB-INF</directory>
-                            <filtering>true</filtering>
-                            <targetPath>WEB-INF</targetPath>
-                        </resource>
-                    </webResources>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>com.google.appengine</groupId>
-                <artifactId>gcloud-maven-plugin</artifactId>
-                <version>2.0.9.111.v20160525</version>
-                <configuration>
-                    <promote>true</promote>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.9.44</version>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.0.0</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>
