@@ -17,7 +17,7 @@ import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
  */
 public class CPSC476Util {
 	
-	final static ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
+	final static ApplicationContext ac = new ClassPathXmlApplicationContext("edu.fullerton.cpsc.cpscRecipe.beans.xmls.Beans.xml");
 	
 	/**
 	 * @param beanId

@@ -19,10 +19,12 @@ public class MongoDAO extends DAO {
 	private final String signUpdatabaseName;
 
 	public MongoDAO() {
-		this.serverName = CPSC476Util.getDatabaseBeanObject("mongoID").getServerName();
-		this.portNumber = CPSC476Util.getDatabaseBeanObject("mongoID").getPortNumber();
-		this.signUpdatabaseName = CPSC476Util.getDataBaseName("databaseID").getLoginCollection();
-		this.db = getMongoClient(serverName, portNumber);
+		synchronized (this) {
+			this.serverName = CPSC476Util.getDatabaseBeanObject("mongoID").getServerName();
+			this.portNumber = CPSC476Util.getDatabaseBeanObject("mongoID").getPortNumber();
+			this.signUpdatabaseName = CPSC476Util.getDataBaseName("databaseID").getLoginCollection();
+			this.db = getMongoClient(serverName, portNumber);
+		}
 	}
 
 	private MongoDatabase getMongoClient(String serverName, int portNumber) {
