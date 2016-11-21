@@ -51,14 +51,14 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.0.0</version>
-			</plugin>
-			<plugin>
 				<groupId>com.google.appengine</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
 				<version>1.9.46</version>
+			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.0.0</version>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
