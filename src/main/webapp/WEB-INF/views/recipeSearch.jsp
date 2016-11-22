@@ -1,3 +1,4 @@
+<%@ include file="includes/springResources.inc"%>
 <form class="col s12" method="post" id="SignUpLoginController"
 	onsubmit="signup()">
 	<div class="section no-pad-bot" id="index-banner">

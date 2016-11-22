@@ -20,6 +20,8 @@ public class RecipeMakerConstants {
 	
 	public static final String RECIPE_DETAILS_FAV_URL = "recipeDetailsFav";	
 	
+	public static final String SIGN_UP_THIS_USER_URL = "SignUpThisUser";	
+	
 	public static final String LOGOUT = "logout";	
 	
 	

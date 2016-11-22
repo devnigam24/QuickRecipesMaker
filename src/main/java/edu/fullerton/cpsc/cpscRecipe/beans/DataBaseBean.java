@@ -11,7 +11,7 @@ public class DataBaseBean {
 
 	private String serverName;
 	private int portNumber;
-	private String signUpdatabaseName;
+	private String dataBaseName;
 
 	/**
 	 * @return the serverName
@@ -46,16 +46,16 @@ public class DataBaseBean {
 	/**
 	 * @return the signUpdatabaseName
 	 */
-	public String getSignUpdatabaseName() {
-		return signUpdatabaseName;
+	public String getDataBaseName() {
+		return dataBaseName;
 	}
 
 	/**
 	 * @param signUpdatabaseName
 	 *            the signUpdatabaseName to set
 	 */
-	public void setSignUpdatabaseName(String signUpdatabaseName) {
-		this.signUpdatabaseName = signUpdatabaseName;
+	public void setDataBaseName(String dataBaseName) {
+		this.dataBaseName = dataBaseName;
 	}
 
 }

@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import edu.fullerton.cpsc.cpscRecipe.DAO.MongoDAO;
 import edu.fullerton.cpsc.cpscRecipe.beans.DataBaseBean;
-import edu.fullerton.cpsc.cpscRecipe.beans.Databases;
+import edu.fullerton.cpsc.cpscRecipe.beans.DataBases;
 import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 
 /**
@@ -41,8 +41,8 @@ public class CPSC476Util {
 	 * @param string
 	 * @return
 	 */
-	public static Databases getDataBaseName(String beanId) {
-		Databases obj = (Databases) ac.getBean(beanId);
+	public static DataBases getDataBaseName(String beanId) {
+		DataBases obj = (DataBases) ac.getBean(beanId);
 		return obj;
 	}
 	

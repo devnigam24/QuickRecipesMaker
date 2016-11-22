@@ -7,7 +7,7 @@ package edu.fullerton.cpsc.cpscRecipe.beans;
  * @author Devvrat Nigam
  *
  */
-public class Databases {
+public class DataBases {
 	
 	private String signUpCollection;
 	

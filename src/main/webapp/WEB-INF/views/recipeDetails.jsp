@@ -1,3 +1,4 @@
+<%@ include file="includes/springResources.inc"%>
 <div class="row">
 	<div class="col s1 m3">
 		<div class="card">

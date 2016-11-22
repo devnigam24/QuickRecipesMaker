@@ -1,31 +1,14 @@
 var preLoder = '<div class="preloader-wrapper center big active"><div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
 
-function ajaxPosturl(url, jsonObject) {
-
+function ajaxJsonUrl(url, jsonObject, methodType) {
 	$.ajax({
 		url : url,
-		type : "POST",
+		type : methodType,
 		dataType : "json",
 		contentType : "Application/Json",
 		data : JSON.stringify(jsonObject),
 		success : function(data) {
 			console.log(data.Attempt);
-		},
-		failure : function(errMsg) {
-		}
-	});
-}
-
-function ajaxGeturl(url, jsonObject) {
-	$.ajax({
-		url : url,
-		type : "GET",
-		dataType : "json",
-		contentType : "Application/Json",
-		data : JSON.stringify(jsonObject),
-		success : function(data) {
-			console.log(data.Attempt);
-
 		},
 		failure : function(errMsg) {
 		}

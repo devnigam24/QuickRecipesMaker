@@ -1,3 +1,4 @@
+<%@ include file="includes/springResources.inc"%>
 <form class="col s12" method="post" onsubmit="updateUsrDetails()">
 	<div class="row">
 		<form class="col s12">

@@ -1,11 +1,12 @@
+<%@ include file="includes/springResources.inc"%>
 <form class="col s12" method="post" onsubmit="updateUsrDetails()">
 	<div class="row">
 		<form class="col s12">
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="resources/images/Recipe.jpg"> <span
-							class="card-title">Meat Recipe</span>
+						<img src="<c:url value="/resources/images/Recipe.jpg"/>" /> 
+							<span class="card-title">Meat Recipe</span>
 					</div>
 					<div class="card-content">
 						<h6>
@@ -36,8 +37,8 @@
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="resources/images/Recipe.jpg"> <span
-							class="card-title">Meat Recipe</span>
+						<img src="<c:url value="/resources/images/Recipe.jpg"/>" /> 
+							<span class="card-title">Meat Recipe</span>
 					</div>
 					<div class="card-content">
 						<h6>
@@ -68,8 +69,8 @@
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="resources/images/Recipe.jpg"> <span
-							class="card-title">Meat Recipe</span>
+						<img src="<c:url value="/resources/images/Recipe.jpg"/>" />  
+							<span class="card-title">Meat Recipe</span>
 					</div>
 					<div class="card-content">
 						<h6>

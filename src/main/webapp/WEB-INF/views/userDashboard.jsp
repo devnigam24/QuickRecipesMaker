@@ -8,127 +8,34 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1.0" />
 <title>Recipe Maker</title>
 <%@ include file="includes/resources.inc"%>
-<link href="<c:url value="/resources/css/materialize.css" />" type="text/css" rel="stylesheet" media="screen,projection">
-<link href="<c:url value="/resources/css/style.css" />" type="text/css" rel="stylesheet" media="screen,projection">
+<%@ include file="includes/loginForm.inc"%>
+<%@ include file="includes/signUpForm.inc"%>
 </head>
 <body>
 	<nav class="light-blue lighten-1" role="navigation">
-	<div class="nav-wrapper container">
-		<!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
-		<a href="#" data-activates="slide-out" class="left menuButton"><i
-			class="material-icons">menu</i></a> <a id="logo-container" href="#"
-			class="brand-logo">QuickRecipeFinder</a>
-		<ul class="right hide-on-med-and-down">
-			<li><a class="modal-trigger waves-effect waves-light "
-				href="#Register">Register</a></li>
-		</ul>
-		<ul class="right hide-on-med-and-down">
-			<li><a class="modal-trigger waves-effect waves-light "
-				href="#Login">Login</a></li>
-		</ul>
-		<%@ include file="includes/leftNavigation.jsp"%>
-		<form>
-			<div class="right hide-on-med-and-down input-field">
-				<input id="search" type="search" required> <label
-					for="search"><i class="material-icons">search</i> </label> <i
-					class="material-icons">close</i>
-			</div>
-		</form>
-		<!-- 
-               <ul id="nav-mobile" class="side-nav">
-                   <li><a href="#">Mobile Link</a></li>
-               </ul> -->
-	</div>
+		<div class="nav-wrapper container">
+			<!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
+			<a href="#" data-activates="slide-out" class="left menuButton">
+				<i class="material-icons">menu</i>
+			</a> 
+			<a id="logo-container" href="#"	class="brand-logo">QuickRecipeFinder</a>
+			<ul class="right hide-on-med-and-down">
+				<li><a class="modal-trigger waves-effect waves-light" href="#Register">Register</a></li>
+			</ul>
+			<ul class="right hide-on-med-and-down">
+				<li><a class="modal-trigger waves-effect waves-light" href="#Login">Login</a></li>
+			</ul>
+			<%@ include file="includes/leftNavigation.inc"%>			
+			<form>
+				<div class="right hide-on-med-and-down input-field">
+					<input id="search" type="search" required> <label
+						for="search"><i class="material-icons">search</i> </label> <i
+						class="material-icons">close</i>
+				</div>
+			</form>
+		</div>
 	</nav>
-
-	<!-- Modal Login -->
-	<form class="col s12" method="post" id="SignUpLoginController"
-		onsubmit="login()">
-		<div id="Login" class="modal modal-fixed-footer">
-			<div class="modal-content">
-				<h4>Login</h4>
-				<div class="row">
-					<div class="input-field col s12">
-						<input id="Username" type="text" class="active validate" required
-							and aria-required="true"> <label for="username">Username</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						<input id="Password" type="password" class=" active validate"
-							required and aria-required="true"> <label for="password">Password</label>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="modal-action modal-close btn-flat">Cancel</button>
-				<button class="btn-flat" type="submit" name="action">Login</button>
-			</div>
-		</div>
-	</form>
-	<!-- Modal Register -->
-	<form class="col s12" method="post" id="SignUpLoginController"
-		onsubmit="signup()">
-		<div id="Register" class="modal modal-fixed-footer">
-			<div class="modal-content">
-				<h4>New User ?</h4>
-				<div class="row">
-					<div class="row">
-						<div class="input-field col s6">
-							<input id="first_name" type="text" class="active validate"
-								required and aria-required="true"> <label
-								for="first_name" data-error="wrong" data-success="">First
-								Name</label>
-						</div>
-						<div class="input-field col s6">
-							<input id="last_name" type="text" class="active validate"
-								required and aria-required="true"> <label
-								for="last_name" data-error="wrong" data-success="">Last
-								Name</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="username" type="text" class="active validate" required
-								and aria-required="true"> <label for="username"
-								data-error="wrong" data-success="">Username</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<input id="password" type="password" class="active validate"
-								required and aria-required="true"> <label for="password"
-								data-error="wrong" data-success="">Password</label>
-						</div>
-						<div class="input-field col s6">
-							<input id="confirmpassword" type="password"
-								class="active validate" required and aria-required="true">
-							<label for="confirmpassword" data-error="wrong" data-success="">
-								Confirm Password</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="email" type="email" class="active validate" required
-								and aria-required="true"> <label for="email"
-								data-error="Invalid Email ,Please Enter correct Email"
-								data-success="">Email</label>
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class="modal-action modal-close btn-flat">Cancel</button>
-				<button class="btn-flat" type="submit" name="action">Register</button>
-			</div>
-		</div>
-	</form>
-
-
-
-	<main>
-	<div class="container" id="mainContainer">
+	<main class="container center paddinTop3em" id="mainContainer">
 		<div class="section">
 			<!--   Icon Section   -->
 			<div class="row">
@@ -163,7 +70,6 @@
 		</div>
 		<br> <br>
 		<div class="section"></div>
-	</div>
 	</main>
 	<footer class="page-footer orange">
 	<div class="container">

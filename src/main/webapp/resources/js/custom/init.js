@@ -57,15 +57,9 @@ function signup() {
     var email = document.getElementById("email").value;
     var name = document.getElementById("username").value;
     var pwd = document.getElementById("password").value;
-    var j = JSON.parse('{"username":"' + name + '","password":"' + pwd + '","firstname":"' + fname + '","lastname":"' + lname + '","email":"' + email + '"}');
+    var signUpJson = JSON.parse('{"username":"' + name + '","password":"' + pwd + '","firstname":"' + fname + '","lastname":"' + lname + '","email":"' + email + '"}');
     console.log(j);
-    ajaxPosturl(url,j);
-    $("#username").val("   ");
-    $("#first_name").val("");
-    $("#last_name").val("");
-    $("#email").val("");
-    $("#password").val("");
-
+    ajaxJsonUrl("SignUpThisUser",signUpJson,'POST');
 }
 
 
@@ -75,7 +69,7 @@ function login() {
     var pwd = document.getElementById("Password").value;
     var j = JSON.parse('{"username":"' + name + '","password":"' + pwd + '"}');
     console.log(j);
-    ajaxPosturl(url,j)
+    ajaxJsonUrl(url,j,'POST')
 }
 
 
@@ -88,7 +82,7 @@ function updateUsrDetails(username) {
     var abtMe = $("#aBoume").val();
     var fav = $("#fav").val();
     var obj = JSON.parse('{"firstname" : "' + firstName + '","lastname" : "' + lastName + '","aboutme" : "' + abtMe + '","Password" : "' + pwd + '","favourite" : "' + fav + '"}');
-   ajaxPosturl(url,obj); 
+    ajaxJsonUrl(url,obj,'POST'); 
 
 }
 
