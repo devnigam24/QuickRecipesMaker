@@ -1,0 +1,17 @@
+edu\fullerton\cpsc\cpscRecipe\interfaces\NavigationController.class
+edu\fullerton\cpsc\cpscRecipe\DAO\MongoDAO.class
+edu\fullerton\cpsc\cpscRecipe\beans\DataBases.class
+edu\fullerton\cpsc\cpscRecipe\util\CPSC476Util.class
+edu\fullerton\cpsc\cpscRecipe\beans\UserBean.class
+edu\fullerton\cpsc\cpscRecipe\classes\RecipeClass.class
+edu\fullerton\cpsc\cpscRecipe\exception\RecipeMakerException.class
+edu\fullerton\cpsc\cpscRecipe\beans\DataBaseBean.class
+edu\fullerton\cpsc\cpscRecipe\beans\MongoDBDataSource.class
+edu\fullerton\cpsc\cpscRecipe\controllers\LeftNavigationController.class
+edu\fullerton\cpsc\cpscRecipe\classes\RecipeMakerConstants.class
+edu\fullerton\cpsc\cpscRecipe\controllers\DashBoardController.class
+edu\fullerton\cpsc\cpscRecipe\controllers\SignUpLoginController.class
+edu\fullerton\cpsc\cpscRecipe\DAO\DAO.class
+edu\fullerton\cpsc\cpscRecipe\interfaces\CPSCController.class
+edu\fullerton\cpsc\cpscRecipe\interfaces\CredentialValidation.class
+edu\fullerton\cpsc\cpscRecipe\controllers\SignUpController.class

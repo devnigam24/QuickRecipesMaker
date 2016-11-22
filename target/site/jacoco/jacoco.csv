@@ -1,0 +1,15 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.DAO,MongoDAO,229,0,6,0,41,0,9,0,6,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.DAO,DAO,120,0,2,0,22,0,6,0,5,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.beans,DataBases,17,0,0,0,7,0,5,0,5,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.beans,DataBaseBean,24,0,0,0,10,0,7,0,7,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.beans,UserBean,38,0,0,0,16,0,11,0,11,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.beans,MongoDBDataSource,3,0,0,0,1,0,1,0,1,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.util,CPSC476Util,40,0,0,0,11,0,6,0,6,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.exception,RecipeMakerException,5,0,0,0,2,0,2,0,2,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.classes,RecipeClass,9,0,0,0,4,0,3,0,3,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.classes,RecipeMakerConstants,3,0,0,0,1,0,1,0,1,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.controllers,SignUpLoginController,7,0,0,0,3,0,3,0,3,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.controllers,LeftNavigationController,69,0,12,0,21,0,15,0,9,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.controllers,SignUpController,3,0,0,0,1,0,1,0,1,0
+RecepieMaker Maven Webapp,edu.fullerton.cpsc.cpscRecipe.controllers,DashBoardController,23,0,2,0,7,0,5,0,4,0
