@@ -8,11 +8,17 @@
 	<name>RecepieMaker Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<appengine.target.version>1.7.5</appengine.target.version>
 		<spring.version>4.0.1.RELEASE</spring.version>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 	</properties>
 	<dependencies>
+	    <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+        <version>${appengine.target.version}</version>
+        </dependency>
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -51,6 +57,11 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>1.9.46</version>
+			</plugin>
+			<plugin>
 	            <groupId>org.codehaus.mojo</groupId>
 	            <artifactId>exec-maven-plugin</artifactId>
 	            <version>1.2.1</version>
@@ -58,11 +69,6 @@
 	                 <mainClass>org.test.int1.Main</mainClass>
 	            </configuration>
 	        </plugin>
-			<plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>1.9.46</version>
-			</plugin>
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>appengine-maven-plugin</artifactId>
