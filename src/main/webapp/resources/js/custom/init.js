@@ -52,38 +52,20 @@ var url ="http://localhost:3000/Signup";
 
  // Signup
 function signup() {
-    var fname = document.getElementById("first_name").value;
-    var lname = document.getElementById("last_name").value;
-    var email = document.getElementById("email").value;
-    var name = document.getElementById("username").value;
-    var pwd = document.getElementById("password").value;
-    var signUpJson = JSON.parse('{"username":"' + name + '","password":"' + pwd + '","firstname":"' + fname + '","lastname":"' + lname + '","email":"' + email + '"}');
-    console.log(j);
-    ajaxJsonUrl("SignUpThisUser",signUpJson,'POST');
+    var dataToPopulate = $("#SignUpLoginController").serialize();
+    ajaxJsonUrl("signUpThisUser",dataToPopulate,'POST');
 }
 
 
 //Login
 function login() {
-    var name = document.getElementById("Username").value;
-    var pwd = document.getElementById("Password").value;
-    var j = JSON.parse('{"username":"' + name + '","password":"' + pwd + '"}');
-    console.log(j);
-    ajaxJsonUrl(url,j,'POST')
+	var dataToPopulate = $("#LoginController").serialize();
+	ajaxJsonUrl("loginThisUser",dataToPopulate,'POST');
 }
 
-
-function updateUsrDetails(username) {
-    var firstName = $("#fName").val();
-    var lastName = $("#lName").val();
-    var userName = $("#uNameTxt").val();
-    var email = $("#eMail").val();
-    var pwd = $("#pAssword").val();
-    var abtMe = $("#aBoume").val();
-    var fav = $("#fav").val();
-    var obj = JSON.parse('{"firstname" : "' + firstName + '","lastname" : "' + lastName + '","aboutme" : "' + abtMe + '","Password" : "' + pwd + '","favourite" : "' + fav + '"}');
-    ajaxJsonUrl(url,obj,'POST'); 
-
-}
+//recipe search form trigger
+$("#dropdowncalorie").change(function(){
+	alert(this.id);
+});
 
 

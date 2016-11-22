@@ -1,16 +1,16 @@
-<form class="col s12" method="post" id="SignUpLoginController" onsubmit="login()">
+<form class="col s12" method="post" id="LoginController" onsubmit="login()">
 	<div id="Login" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Login</h4>
 			<div class="row">
 				<div class="input-field col s12">
-					<input id="Username" type="text" class="active validate" required
-						and aria-required="true"> <label for="username">Username</label>
+					<input id="UserName" name="UserName" type="text" class="active validate" required
+						and aria-required="true"> <label for="UserName">Username</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input id="Password" type="password" class=" active validate"
+					<input id="Password" name="Password" type="password" class=" active validate"
 						required and aria-required="true"> <label for="password">Password</label>
 				</div>
 			</div>

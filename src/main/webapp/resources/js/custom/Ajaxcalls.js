@@ -1,17 +1,13 @@
 var preLoder = '<div class="preloader-wrapper center big active"><div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
 
-function ajaxJsonUrl(url, jsonObject, methodType) {
+function ajaxJsonUrl(url, quertString, methodType) {
 	$.ajax({
 		url : url,
 		type : methodType,
-		dataType : "json",
-		contentType : "Application/Json",
-		data : JSON.stringify(jsonObject),
-		success : function(data) {
-			console.log(data.Attempt);
-		},
-		failure : function(errMsg) {
-		}
+		crossDomain: true,
+		dataType : "html",
+		data : quertString,
+		success : ajaxSuccessFunction
 	});
 }
 
@@ -36,4 +32,16 @@ function ajaxGeturlForSideNav(url, divIdToReplace) {
 			setDefautValues();
 		}
 	});
+}
+
+function ajaxSuccessFunction(data){
+	console.log(data);
+}
+
+function beforeAjaxCallFunction(data){
+	console.log(data);
+}
+
+function ajaxErrorFunction(data){
+	console.log(data);
 }

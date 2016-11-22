@@ -9,10 +9,18 @@ package edu.fullerton.cpsc.cpscRecipe.beans;
  */
 public class UserBean {
 	private String userName;
-	private char[] password;
+	private String password;
 	private String userFirstName;
 	private String userLastName;
 	private String userEmailID;
+	
+	public UserBean(String userName,String password,String userFirstName,String userLastName,String userEmailID){
+		this.userName=userName;
+		this.password=password;
+		this.userFirstName=userFirstName;
+		this.userLastName=userLastName;
+		this.userEmailID=userEmailID;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -46,11 +54,11 @@ public class UserBean {
 		this.userEmailID = userEmailID;
 	}
 	
-	public char[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(char[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 

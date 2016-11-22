@@ -6,7 +6,7 @@ public class RecipeMakerConstants {
 	
 	public static final String DASHBOARD_URL = "dashBoard";	
 	
-	public static final String SIGNUP_LOGIN_CONTROLLER_URL = "signUpLogin";
+	public static final String HOME_PAGE_URL = "homePage";	
 	
 	public static final String EDIT_PROFILE_URL = "editProfile";
 	
@@ -20,7 +20,9 @@ public class RecipeMakerConstants {
 	
 	public static final String RECIPE_DETAILS_FAV_URL = "recipeDetailsFav";	
 	
-	public static final String SIGN_UP_THIS_USER_URL = "SignUpThisUser";	
+	public static final String SIGN_UP_THIS_USER_URL = "signUpThisUser";	
+	
+	public static final String LOG_IN_THIS_USER = "loginThisUser";
 	
 	public static final String LOGOUT = "logout";	
 	

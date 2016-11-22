@@ -10,10 +10,11 @@
 <%@ include file="includes/resources.inc"%>
 <%@ include file="includes/loginForm.inc"%>
 <%@ include file="includes/signUpForm.inc"%>
+
 </head>
 <body>
 	<%@ include file="includes/topNavBar.inc"%>
-	<%@ include file="includes/topNavBar.inc"%>
+	<%@ include file="includes/leftNavigation.inc"%>
 	<main class="container center paddinTop3em" id="mainContainer">
 		<div class="section">
 			<!--   Icon Section   -->

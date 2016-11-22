@@ -26,18 +26,18 @@ public class DashBoardController extends RecipeClass implements CPSCController {
 
 	private static final Logger logger = Logger.getLogger(DashBoardController.class);
 
-	@RequestMapping(value = RecipeMakerConstants.DASHBOARD_URL, method = RequestMethod.GET)
+	@RequestMapping(value = RecipeMakerConstants.HOME_PAGE_URL, method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		logger.log(Level.INFO, "handleGet enterd Successfully" );
 		if(super.checkPreConditions(request)){
-			return RecipeMakerConstants.DASHBOARD_PAGE;
+			return RecipeMakerConstants.HOME_PAGE_URL;
 		}else{
 			return RecipeMakerException.throwErrorWithoutPage(request);
 		}
 		
 	}
 
-	@RequestMapping(value = RecipeMakerConstants.DASHBOARD_URL, method = RequestMethod.POST)
+	@RequestMapping(value = RecipeMakerConstants.HOME_PAGE_URL, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return null;
 	}

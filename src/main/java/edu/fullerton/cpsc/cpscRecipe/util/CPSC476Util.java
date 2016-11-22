@@ -3,12 +3,12 @@
  */
 package edu.fullerton.cpsc.cpscRecipe.util;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import edu.fullerton.cpsc.cpscRecipe.DAO.MongoDAO;
-import edu.fullerton.cpsc.cpscRecipe.beans.DataBaseBean;
-import edu.fullerton.cpsc.cpscRecipe.beans.DataBases;
+import com.mongodb.BasicDBObject;
+
 import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 
 /**
@@ -16,38 +16,35 @@ import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
  *
  */
 public class CPSC476Util {
-	
-	final static ApplicationContext ac = new ClassPathXmlApplicationContext("edu.fullerton.cpsc.cpscRecipe.beans.xmls.Beans.xml");
-	
-	/**
-	 * @param beanId
-	 * @return
-	 */
-	public static UserBean getUserBeanObject(String beanId){		
-		UserBean obj = (UserBean) ac.getBean(beanId);
-		return obj;
-	}
 
-	/**
-	 * @param beanId
-	 * @return
-	 */
-	public static DataBaseBean getDatabaseBeanObject(String beanId) {
-		DataBaseBean obj = (DataBaseBean) ac.getBean(beanId);
-		return obj;
-	}
+	public static BasicDBObject[] getJSONObjectFromUserBean(UserBean thisUserBean) {
+		BasicDBObject userJson = new BasicDBObject();
+		ArrayList<String> createdRecipeList =  new ArrayList<String>();
+		HashMap<String,String> sharedRecipeMap =  new HashMap<String,String>();
+		ArrayList<String> followersList =  new ArrayList<String>();
+		ArrayList<String> followingList =  new ArrayList<String>();
+		ArrayList<String> favouriteRecipeList =  new ArrayList<String>();
+		
+        userJson.put("firstName", thisUserBean.getUserFirstName());
+        userJson.put("lastName", thisUserBean.getUserLastName());
+        userJson.put("userName", thisUserBean.getUserName());
+        userJson.put("emailId", thisUserBean.getUserEmailID());
+        userJson.put("password", thisUserBean.getPassword());
+        userJson.put("aboutMe", "");        
+        userJson.put("createRecipeCount", 0);
+        userJson.put("createdRecipe", createdRecipeList);
+        userJson.put("sharedRecipeCount", 0);
+        userJson.put("sharedRecipes", sharedRecipeMap);
+        userJson.put("followersCount", 0);
+        userJson.put("followersList", followersList);
+        userJson.put("followingCount", 0);
+        userJson.put("followingList", followingList);
+        userJson.put("favouriteRecipeCount", 0);
+        userJson.put("favouriteRecipeList", favouriteRecipeList);
 
-	/**
-	 * @param string
-	 * @return
-	 */
-	public static DataBases getDataBaseName(String beanId) {
-		DataBases obj = (DataBases) ac.getBean(beanId);
-		return obj;
-	}
-	
-	public static void main(String[] args) {
-		CPSC476Util u = new CPSC476Util();
-		u.getDatabaseBeanObject("mongoID");
-	}
-}
+        final BasicDBObject[] UserData = {userJson};
+        return UserData;
+        
+        
+        
+	}}
