@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <application>quickrecipemaker-1</application>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1</version>
     <threadsafe>true</threadsafe>
 </appengine-web-app>
