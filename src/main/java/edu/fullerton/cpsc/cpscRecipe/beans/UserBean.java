@@ -14,12 +14,19 @@ public class UserBean {
 	private String userLastName;
 	private String userEmailID;
 	
+	public UserBean(){}
+	
 	public UserBean(String userName,String password,String userFirstName,String userLastName,String userEmailID){
 		this.userName=userName;
 		this.password=password;
 		this.userFirstName=userFirstName;
 		this.userLastName=userLastName;
 		this.userEmailID=userEmailID;
+	}
+	
+	public UserBean(String userName,String password){
+		this.userName=userName;
+		this.password=password;
 	}
 
 	public String getUserName() {

@@ -7,7 +7,9 @@ function ajaxJsonUrl(url, quertString, methodType) {
 		crossDomain: true,
 		dataType : "html",
 		data : quertString,
-		success : ajaxSuccessFunction
+		success : ajaxSuccessFunction,
+		failure : ajaxErrorFunction,
+		done : afterAjaxCallFunction
 	});
 }
 
@@ -35,13 +37,15 @@ function ajaxGeturlForSideNav(url, divIdToReplace) {
 }
 
 function ajaxSuccessFunction(data){
-	console.log(data);
+	window.location.href = data;
 }
 
-function beforeAjaxCallFunction(data){
+function afterAjaxCallFunction(data){
+	console.log("after ajax call");
 	console.log(data);
 }
 
 function ajaxErrorFunction(data){
+	console.log("ERRORRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR");
 	console.log(data);
 }

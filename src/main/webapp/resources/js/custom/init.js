@@ -11,6 +11,8 @@ function aa(log){
 $(document).ready(function(){
     
     setDefautValues();
+    
+    var pageFragmentToOpen = "${pageFragmentToOpen}";
   });
 
 function setDefautValues(){
@@ -45,22 +47,10 @@ $("#dropdowncalorie").click(function(){
 	$("#"+idName.trim()).sumbit();
  }
 
-var url ="http://localhost:3000/Signup";
 
-
-
-
- // Signup
-function signup() {
-    var dataToPopulate = $("#SignUpLoginController").serialize();
-    ajaxJsonUrl("signUpThisUser",dataToPopulate,'POST');
-}
-
-
-//Login
-function login() {
-	var dataToPopulate = $("#LoginController").serialize();
-	ajaxJsonUrl("loginThisUser",dataToPopulate,'POST');
+function doAjaxCall(formID){
+	var dataToPopulate = $("#"+formID).serialize();
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
 }
 
 //recipe search form trigger
