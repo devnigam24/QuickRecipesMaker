@@ -11,6 +11,8 @@ function aa(log){
 $(document).ready(function(){
     
     setDefautValues();
+    
+    var pageFragmentToOpen = "${pageFragmentToOpen}";
   });
 
 function setDefautValues(){
@@ -28,6 +30,7 @@ function setDefautValues(){
           id: 1,
     };
     $(".drag-target").trigger('click');
+    $('select').material_select();
 }
 $("#dropdowntimer").click(function(){
     
@@ -45,45 +48,38 @@ $("#dropdowncalorie").click(function(){
 	$("#"+idName.trim()).sumbit();
  }
 
-var url ="http://localhost:3000/Signup";
+//recipe search form trigger
+$("#dropdowncalorie").change(function(){
+	alert(this.id);
+});
 
-
-
-
- // Signup
-function signup() {
-    var fname = document.getElementById("first_name").value;
-    var lname = document.getElementById("last_name").value;
-    var email = document.getElementById("email").value;
-    var name = document.getElementById("username").value;
-    var pwd = document.getElementById("password").value;
-    var signUpJson = JSON.parse('{"username":"' + name + '","password":"' + pwd + '","firstname":"' + fname + '","lastname":"' + lname + '","email":"' + email + '"}');
-    console.log(j);
-    ajaxJsonUrl("SignUpThisUser",signUpJson,'POST');
+function updateProfile(){
+	$('#fname').attr('disabled',false);
+	$('#lname').attr('disabled',false);
+	$('#emailid').attr('disabled',false);
+	$('#aboutme').attr('disabled',false);
+	$('#password').attr('disabled',false);
+	$("#saveButton").removeClass("hide");
+	$("#updateButton").addClass("hide");	
 }
 
-
-//Login
-function login() {
-    var name = document.getElementById("Username").value;
-    var pwd = document.getElementById("Password").value;
-    var j = JSON.parse('{"username":"' + name + '","password":"' + pwd + '"}');
-    console.log(j);
-    ajaxJsonUrl(url,j,'POST')
+function saveProfile(formID){
+	var dataToPopulate = $("#"+formID).serialize();
+	dataToPopulate = dataToPopulate + "&userName=" +$("#username").val();
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
 }
 
-
-function updateUsrDetails(username) {
-    var firstName = $("#fName").val();
-    var lastName = $("#lName").val();
-    var userName = $("#uNameTxt").val();
-    var email = $("#eMail").val();
-    var pwd = $("#pAssword").val();
-    var abtMe = $("#aBoume").val();
-    var fav = $("#fav").val();
-    var obj = JSON.parse('{"firstname" : "' + firstName + '","lastname" : "' + lastName + '","aboutme" : "' + abtMe + '","Password" : "' + pwd + '","favourite" : "' + fav + '"}');
-    ajaxJsonUrl(url,obj,'POST'); 
-
+function searchRecipe(formID){
+	var ingredientsList = $('.chips-placeholder').material_chip('data');
+	var ingredientsListAsString = "";
+	for(var i=0;i<ingredientsList.length;i++){
+		ingredientsListAsString = ingredientsListAsString + ingredientsList[i].tag;
+		if(i != ingredientsList.length - 1){
+			ingredientsListAsString = ingredientsListAsString + ",";
+		}		
+	}
+	
+	var dataToPopulate = $("#"+formID).serialize();
+	dataToPopulate = dataToPopulate + "&ingredientsList=" + ingredientsListAsString;
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
 }
-
-

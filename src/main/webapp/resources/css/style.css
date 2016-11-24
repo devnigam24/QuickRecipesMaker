@@ -62,3 +62,14 @@ body {
  .paddinTop3em{
  	padding-top: 3em;
  }
+ .left{
+ 	text-align: -webkit-left;
+ }
+ .largeText{
+ 	font-size: large !important;
+ }
+ .xLargerFont{
+ 	font-size: x-large !important;
+ }
+ 
+     

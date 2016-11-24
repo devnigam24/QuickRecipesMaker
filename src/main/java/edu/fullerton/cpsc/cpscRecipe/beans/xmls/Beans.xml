@@ -4,21 +4,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-	<bean id="userBeanID" class="edu.fullerton.cpsc.cpscRecipe.beans.UserBean">
+	
+	<bean id="mockUserBean" class="edu.fullerton.cpsc.cpscRecipe.beans.UserBean">
 		<property name="userName" value="regeAnish" />
+		<property name="password" value="regeAnish123" />
 		<property name="userFirstName" value="anish" />
 		<property name="userLastName" value="rege" />
 		<property name="userEmailID" value="regeanish@gmail.com" />
 	</bean>
 	
-	<bean id="mongoID" class="edu.fullerton.cpsc.cpscRecipe.beans.DataBaseBean">
-		<property name="serverName" value="localhost" />
-		<property name="portNumber" value="27017" />
-	</bean>
-
-	<bean id="databaseID" class="edu.fullerton.cpsc.cpscRecipe.beans.Databases">
-		<property name="signUpCollection" value="userDataBaseBasedOnSignUp" />
-		<property name="loginCollection" value="userDataBaseForLogin" />
-	</bean>
+	
+	
 </beans>
