@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="userBeanID" class="edu.fullerton.cpsc.cpscRecipe.beans.UserBean">
+		<property name="userName" value="devnigam24" />
+		<property name="userFirstName" value="dev" />
+		<property name="userLastName" value="nigam" />
+		<property name="userEmailID" value="devnigam24@gmail.com" />
+	</bean>
+	
+	<bean id="mongoID" class="edu.fullerton.cpsc.cpscRecipe.beans.DataBaseBean">
+		<property name="serverName" value="devnigam24" />
+		<property name="portNumber" value="dev" />
+	</bean>
+
+	<bean id="databaseID" class="edu.fullerton.cpsc.cpscRecipe.beans.Databases">
+		<property name="signUpCollection" value="userDataBaseBasedOnSignUp" />
+		<property name="loginCollection" value="userDataBaseForLogin" />
+	</bean>
+</beans>
