@@ -99,8 +99,16 @@ public class CPSC476Util {
 			newBean.setIngredientsList(recipeObject.getJSONArray("ingredientLines"));
 			newBean.setDietLabels(recipeObject.getJSONArray("dietLabels"));
 			newBean.setHealthLabel(recipeObject.getJSONArray("healthLabels"));
+			newBean.setCalorieAmount(Double.parseDouble(recipeObject.get("calories").toString()) / 
+									Double.parseDouble(recipeObject.get("yield").toString()));
 			searchRecipeList.add(newBean);
 		}		
 		return searchRecipeList;
+	}
+
+	public static String getRandomCookingTime(int l, int m) {
+			java.util.Random r = new java.util.Random();
+			int randomNum = r.nextInt(m-l) + l;
+			return String.valueOf(randomNum);
 	}
 }
