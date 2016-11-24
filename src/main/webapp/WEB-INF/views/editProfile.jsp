@@ -1,120 +1,69 @@
 <%@ include file="includes/springResources.inc"%>
-<form class="col s12" method="post" onsubmit="updateUsrDetails()">
-	<div class="row">
-		<form class="col s12">
-			<div class="row">
-				<div class="attributes col s12" style="font-size: 20px">
-					<div class="prd_label col s4">
-						<label>First Name:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="fNameTxt" class="col s6"></div>
-						<div id="fNamDiv" class="hide input-field col s6">
-							<input id="fName" type="text" class="inputVal">
-						</div>
-						<div class="edit col s2">
-							<a id="editFname">edit</a>
-						</div>
-					</div>
-				</div>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/materialize/materialize.js" />"></script>
+<form class="col s12 center" method="POST" action="updateProfile" id="updateProfileForm">
+	<div class="row center">
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="fname" type="text" name="userFirstName" class="validate darken-1 xLargerFont"
+					value="${userInSession.userFirstName}"> <label for="fname"
+					class="left blue-text text-darken-2 largeText">First Name :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>Last Name:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="lNameTxt" class="col s6"></div>
-						<div id="LNamDiv" class="hide input-field col s6">
-							<input id="lName" type="text" class="inputVal">
-						</div>
-						<div class="edit col s2">
-							<a id="editLname">edit</a>
-						</div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="lname" type="text" name="userLastName" class="validate darken-1 xLargerFont"
+					value="${userInSession.userLastName}"> <label for="lname"
+					class="left blue-text text-darken-2 largeText">Last Name :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>User Name:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="uNameTxt" class="col s6"></div>
-						<div class="col s2"></div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="username" type="text" name="userName" class="validate darken-1 xLargerFont"
+					value="${userInSession.userName}"> <label for="username"
+					class="left blue-text text-darken-2 largeText">User Name :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>Email:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="eMailTxt" class="col s6"></div>
-						<div class="col s2"></div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="emailid" type="text" name="userEmailID" class="validate darken-1 xLargerFont"
+					value="${userInSession.userEmailID}"> <label for="emailid"
+					class="left blue-text text-darken-2 largeText">Email :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>About me:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="abtMeTxt" class="col s6"></div>
-						<div id="abtMeDiv" class="hide input-field col s6">
-							<textarea id="aboutMe" class="materialize-textarea inputVal"></textarea>
-						</div>
-						<div class="edit col s2">
-							<a id="editAbtMe">edit</a>
-						</div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input id="password" type="password" name="password" class="validate darken-1 xLargerFont"
+					value="${userInSession.password}"> <label for="password"
+					class="left blue-text text-darken-2 largeText">Password :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>Favorite Recipe:</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="favBokTxt" class="col s6"></div>
-						<div id="favBokDiv" class="hide input-field col s6">
-							<textarea id="favBok" class="materialize-textarea inputVal"></textarea>
-						</div>
-						<div class="edit col s2">
-							<a id="editFavBok">edit</a>
-						</div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="aboutme" name="aboutMe" type="text" class="validate darken-1 xLargerFont"
+					value="${userInSession.aboutMe}"> <label for="aboutme"
+					class="left blue-text text-darken-2 largeText">About Me :</label>
 			</div>
-
-			<div class="row">
-				<div class="attributes col s12">
-					<div class="prd_label col s4">
-						<label>Created :</label>
-					</div>
-					<div class="prd_val col s8">
-						<div id="showuser_bshelf" class="col s6"></div>
-						<div class="col s2"></div>
-					</div>
-				</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="favrecipelist" type="text" class="validate darken-1 xLargerFont"
+					value="${userInSession.favouriteRecipeList}"> <label
+					for="favrecipelist" class="left blue-text text-darken-2 largeText">Favorite Recipe:</label>
 			</div>
+		</div>
 
-		</form>
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="recipecreated" type="text" class="validate darken-1 xLargerFont"
+					value="${userInSession.createdRecipe}"> <label
+					for="recipecreated" class="left blue-text text-darken-2 largeText">Recipe Created :</label>
+			</div>
+		</div>
 	</div>
-
-
-
-
 	<div class="row">
-		<button class="waves-effect waves-light btn">Cancel</button>
-		<button class="waves-effect waves-light btn" type="submit"
-			name="action">Update Profile</button>
+		<a class="waves-effect waves-light btn" onclick="reset('updateProfileForm')">Cancel</a>
+		<a class="waves-effect waves-light btn" id="updateButton" onclick="updateProfile()">Update Profile</a>
+		<a class="waves-effect waves-light btn hide" id="saveButton" onclick="saveProfile('updateProfileForm')">Save</a>
 	</div>
 </form>
