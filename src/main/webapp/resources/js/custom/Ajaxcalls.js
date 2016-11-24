@@ -37,7 +37,16 @@ function ajaxGeturlForSideNav(url, divIdToReplace) {
 }
 
 function ajaxSuccessFunction(data){
-	window.location.href = data;
+	var divIdToReplace = "mainContainer";
+	$('#' + divIdToReplace).html('');	
+	$('#' + divIdToReplace).html(preLoder);
+	$(".menuButton").trigger("click");
+	$(".drag-target").trigger('click');
+	setTimeout(function() {				
+		$('#' + divIdToReplace).html(data);								
+		setDefautValues();
+	}, 1000);
+
 }
 
 function afterAjaxCallFunction(data){

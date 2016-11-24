@@ -10,14 +10,19 @@
 <%@ include file="includes/resources.inc"%>
 <%@ include file="includes/loginForm.inc"%>
 <%@ include file="includes/signUpForm.inc"%>
-<%@ include file="includes/topNavBar.inc"%>
 </head>
 <body>
+	<%@ include file="includes/topNavBar.inc"%>
 	<main class="container center paddinTop3em" id="mainContainer">
 		<div class="section">
 			<!--   Icon Section   -->
 			<div class="row">
-				
+				Home page
+				<span class="col-xs-12 serverErrorMsg middle">
+					<c:forEach var="serverSideErrors" items="${ErrorList}">
+						<spring:message code="${serverSideErrors}" />
+					</c:forEach>
+				</span>	
 			</div>
 		</div>
 		<br> <br>

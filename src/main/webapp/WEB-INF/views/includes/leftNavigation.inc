@@ -1,12 +1,10 @@
 <ul id="slide-out" class="side-nav">
 	<li>
 		<div class="userView">
-			<img class="background"
-				src="<c:url value="/resources/images/kegs9T.jpg" />" /> <a
-				href="#!user"><img class="circle"
-				src="<c:url value="/resources/images/userimage.jpg" />" /> </a> <a
-				href="#!name"><span class="white-text name">John Doe</span></a> <a
-				href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+			<img class="background"src="<c:url value="/resources/images/kegs9T.jpg" />" />
+			<a	href="#!user"><img class="circle" src="<c:url value="/resources/images/userimage.jpg" />" /> </a> 
+			<a	href="#!name"><span class="white-text name">${userInSession.userFirstName} ${userInSession.userLastName}</span></a>
+			<a	href="#!email"><span class="white-text email">${userInSession.userEmailID}</span></a>
 		</div>
 	</li>
 	<li><a href="#! "

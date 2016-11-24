@@ -31,6 +31,4 @@ public abstract interface CPSCController {
 	 */
 	abstract String handelPost(HttpServletRequest request, UserBean userBean, BindingResult result) throws Exception;
 
-	abstract Object getValuesFromRequest(HttpServletRequest request);
-
 }

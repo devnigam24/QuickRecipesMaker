@@ -4,11 +4,10 @@
 package edu.fullerton.cpsc.cpscRecipe.controllers;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +33,9 @@ public class DashBoardController extends RecipeClass implements CPSCController{
 	public String handleGet(HttpServletRequest request, UserBean userBean,BindingResult result) throws Exception {
 		logger.log(Level.INFO, "handleGet enterd Successfully" );
 		if(super.checkPreConditions(request)){
+			ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
+			UserBean userData = (UserBean)ac.getBean("mockUserBean");
+			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
 			return RecipeMakerConstants.HOME_PAGE_URL;
 		}else{
 			return RecipeMakerException.throwErrorWithoutPage(request);

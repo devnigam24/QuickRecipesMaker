@@ -13,7 +13,7 @@ import org.springframework.validation.ObjectError;
 
 import edu.fullerton.cpsc.cpscValidator.SignUpPageValidator;
 
-public class SignUpSuperClass {
+public class SignUpLoginSuperClass {
 	
 	@Autowired
 	@Qualifier("signUpFormValidator")

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
-import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.NavigationController;
 
 @Controller

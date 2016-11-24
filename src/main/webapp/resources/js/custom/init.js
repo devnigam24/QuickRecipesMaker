@@ -30,6 +30,7 @@ function setDefautValues(){
           id: 1,
     };
     $(".drag-target").trigger('click');
+    $('select').material_select();
 }
 $("#dropdowntimer").click(function(){
     
@@ -47,15 +48,38 @@ $("#dropdowncalorie").click(function(){
 	$("#"+idName.trim()).sumbit();
  }
 
-
-function doAjaxCall(formID){
-	var dataToPopulate = $("#"+formID).serialize();
-	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
-}
-
 //recipe search form trigger
 $("#dropdowncalorie").change(function(){
 	alert(this.id);
 });
 
+function updateProfile(){
+	$('#fname').attr('disabled',false);
+	$('#lname').attr('disabled',false);
+	$('#emailid').attr('disabled',false);
+	$('#aboutme').attr('disabled',false);
+	$('#password').attr('disabled',false);
+	$("#saveButton").removeClass("hide");
+	$("#updateButton").addClass("hide");	
+}
 
+function saveProfile(formID){
+	var dataToPopulate = $("#"+formID).serialize();
+	dataToPopulate = dataToPopulate + "&userName=" +$("#username").val();
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
+}
+
+function searchRecipe(formID){
+	var ingredientsList = $('.chips-placeholder').material_chip('data');
+	var ingredientsListAsString = "";
+	for(var i=0;i<ingredientsList.length;i++){
+		ingredientsListAsString = ingredientsListAsString + ingredientsList[i].tag;
+		if(i != ingredientsList.length - 1){
+			ingredientsListAsString = ingredientsListAsString + ",";
+		}		
+	}
+	
+	var dataToPopulate = $("#"+formID).serialize();
+	dataToPopulate = dataToPopulate + "&ingredientsList=" + ingredientsListAsString;
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
+}
