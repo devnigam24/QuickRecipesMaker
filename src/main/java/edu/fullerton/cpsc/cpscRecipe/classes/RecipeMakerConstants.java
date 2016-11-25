@@ -93,5 +93,7 @@ public class RecipeMakerConstants {
 	public static final String DIET_LABELS = "dietLabels";
 	
 	public static final String HEALTH_LABEL = "healthLabels";
+	
+	public static final String SHARE_THIS_RECIPE = "shareThisRecipe";
 
 }

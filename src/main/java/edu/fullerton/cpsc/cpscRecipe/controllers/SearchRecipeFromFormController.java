@@ -44,8 +44,31 @@ public class SearchRecipeFromFormController extends SignUpLoginSuperClass {
 		String cookingTime = request.getParameter(RecipeMakerConstants.COOKING_TIME);
 		if (null == cookingTime || cookingTime.equals("")) {
 			cookingTime = "2";
+		}else{
+			if (cookingTime == "1"){
+				cookingTime= CPSC476Util.getRandomCookingTime(0,5);
+			}else if(cookingTime == "2"){
+				cookingTime=CPSC476Util.getRandomCookingTime(5, 10);
+			}else if(cookingTime == "3"){
+				cookingTime=CPSC476Util.getRandomCookingTime(10, 15);
+			}
+			else if(cookingTime == "4"){
+				cookingTime=CPSC476Util.getRandomCookingTime(15, 30);
+				}
+			else if(cookingTime == "5"){
+			cookingTime=CPSC476Util.getRandomCookingTime(30, 45);
+			}
+			else if(cookingTime == "6"){
+				cookingTime=CPSC476Util.getRandomCookingTime(45, 60);
+				}
+			else if(cookingTime == "7"){
+				cookingTime=CPSC476Util.getRandomCookingTime(60, 75);
+				}
+			else{
+				cookingTime=CPSC476Util.getRandomCookingTime(75, 150);
+			} 
 		}
-
+		request.setAttribute(RecipeMakerConstants.COOKING_TIME, cookingTime);
 		String urlToHit = "https://api.edamam.com/search?q=" + URLEncoder.encode(ingredientsList, "UTF-8")
 				+ "&calories=" + URLEncoder.encode(calorieAmount, "UTF-8")
 				+ "&app_id=3e85c661&app_key=f9af7085b7825964d3ea39d7e33877ee&from=0&to=1";
