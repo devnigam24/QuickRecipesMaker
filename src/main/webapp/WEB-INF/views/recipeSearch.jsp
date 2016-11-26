@@ -1,7 +1,7 @@
 <%@ include file="includes/springResources.inc"%>
 <script type="text/javascript" src="<c:url value="/resources/js/materialize/materialize.js" />" ></script>
 <form class="col s12 center" method="POST" action="searchRecipe" id="searchRecipeForm">
-	<input type="hidden" name="userName" value="${userInSession.getUserName()}" />
+	<input type="hidden" name="userName" value="${userInSession.getUserName}" />
 	<div class="section no-pad-bot" id="index-banner">
 		<div class="row">
 			<div class="input-field col s6">
