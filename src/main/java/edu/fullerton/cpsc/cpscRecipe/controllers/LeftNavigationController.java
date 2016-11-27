@@ -8,10 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.NavigationController;
+import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
 
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
@@ -46,10 +48,10 @@ public class LeftNavigationController extends RecipeClass implements NavigationC
 		}
 	}
 	
-	@RequestMapping(value = RecipeMakerConstants.SHARE_RECIPE_URL, method = RequestMethod.GET)
+	@RequestMapping(value = RecipeMakerConstants.GET_MY_CREATED_RECIPES, method = RequestMethod.GET)
 	public String shareThisRecipe(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if(super.checkPreConditions(request)){
-			return RecipeMakerConstants.SHARE_RECIPE_URL;
+			return RecipeMakerConstants.GET_MY_CREATED_RECIPES;
 		}else{
 			return RecipeMakerException.throwErrorWithoutPage(request);
 		}
@@ -75,7 +77,9 @@ public class LeftNavigationController extends RecipeClass implements NavigationC
 	
 	@RequestMapping(value = RecipeMakerConstants.LOGOUT, method = RequestMethod.GET)
 	public String logut(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+		request.getSession().invalidate();
+		request.setAttribute(RecipeMakerConstants.CUSTOM_MESSAGE,"You have been successfully loggged out");
+		return RecipeMakerConstants.HOME_PAGE_URL;
 	}
 
 }

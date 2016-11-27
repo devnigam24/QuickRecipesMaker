@@ -26,7 +26,7 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
  */
 public class CPSC476Util {
 
-	public static BasicDBObject[] getJSONObjectFromUserBean(UserBean thisUserBean) {
+	public static BasicDBObject getJSONObjectFromUserBean(UserBean thisUserBean) {
 		BasicDBObject userJson = new BasicDBObject();
 		userJson.put(RecipeMakerConstants.USER_FIRST_NAME, thisUserBean.getUserFirstName());
 		userJson.put(RecipeMakerConstants.USER_LAST_NAME, thisUserBean.getUserLastName());
@@ -44,19 +44,9 @@ public class CPSC476Util {
 		userJson.put(RecipeMakerConstants.USER_FOLLOWING_LIST, thisUserBean.getFollowingList());
 		userJson.put(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_COUNT, thisUserBean.getFavouriteRecipeCount());
 		userJson.put(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST, thisUserBean.getFavouriteRecipeList());
-		final BasicDBObject[] UserData = { userJson };
-		return UserData;
+		userJson.put(RecipeMakerConstants.UNIQUE_ID, thisUserBean.get_id());
+		return userJson;
 
-	}
-
-	public static void setUpdatedUserValuesInSession(HttpServletRequest request, UserBean userBean) {
-		UserBean user =  (UserBean) request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION);
-		user.setUserFirstName(userBean.getUserFirstName());
-		user.setUserLastName(userBean.getUserLastName());
-		user.setUserEmailID(userBean.getUserEmailID());
-		user.setAboutMe(userBean.getAboutMe());
-		user.setPassword(userBean.getPassword());
-		request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, user);
 	}
 
 	public static UserBean getUserBeanObjectFronJSON(DBObject returnObj) {
@@ -82,6 +72,7 @@ public class CPSC476Util {
 		
 		user.setFavouriteRecipeCount((Integer)returnObj.get(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_COUNT));
 		user.setFavouriteRecipeList((ArrayList<String>) returnObj.get(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST));
+		user.set_id(returnObj.get(RecipeMakerConstants.UNIQUE_ID).toString());
 		
 		return user;
 	}
@@ -98,7 +89,7 @@ public class CPSC476Util {
 			newBean.setMoreInfoUrl(recipeObject.get("url").toString());
 			newBean.setIngredientsList(recipeObject.getJSONArray("ingredientLines"));
 			newBean.setDietLabels(recipeObject.getJSONArray("dietLabels"));
-			newBean.setHealthLabel(recipeObject.getJSONArray("healthLabels"));
+			newBean.setHealthLabels(recipeObject.getJSONArray("healthLabels"));
 			newBean.setCalorieAmount(Double.parseDouble(recipeObject.get("calories").toString()) / 
 									Double.parseDouble(recipeObject.get("yield").toString()));
 			searchRecipeList.add(newBean);
@@ -110,5 +101,38 @@ public class CPSC476Util {
 			java.util.Random r = new java.util.Random();
 			int randomNum = r.nextInt(m-l) + l;
 			return String.valueOf(randomNum);
+	}
+
+	public static BasicDBObject[] getJSONObjectFromRecipeBean(RecipeBean thisRecipe) {
+		BasicDBObject RecipeJson = new BasicDBObject();
+		RecipeJson.put(RecipeMakerConstants.RECIPE_NAME, thisRecipe.getRecipeName());
+		RecipeJson.put(RecipeMakerConstants.IMAGE_URL,thisRecipe.getImageUrl());
+		RecipeJson.put(RecipeMakerConstants.MORE_INF_OURL, thisRecipe.getMoreInfoUrl());
+		RecipeJson.put(RecipeMakerConstants.INGREDIENTS_LIST, thisRecipe.getIngredientsList());
+		RecipeJson.put(RecipeMakerConstants.DIET_LABELS, thisRecipe.getDietLabels());
+		RecipeJson.put(RecipeMakerConstants.COOKING_TIME, thisRecipe.getCookingTime());
+		RecipeJson.put(RecipeMakerConstants.CALORIE_AMOUNT, thisRecipe.getCalorieAmount());	
+		if(null != thisRecipe.getCreatedBy() && "".equals(thisRecipe.getCreatedBy())){
+			RecipeJson.put(RecipeMakerConstants.RECIPE_CREATED_BY, thisRecipe.getCreatedBy());
+		}else{
+			RecipeJson.put(RecipeMakerConstants.RECIPE_CREATED_BY, "EdmanApi");
+		}				
+		final BasicDBObject[] recipeData = { RecipeJson };
+		return recipeData;
+
+	}
+
+	public static void setValuesInRequest(HttpServletRequest request, UserBean userBean) {
+		if(null != userBean){
+			request.setAttribute(RecipeMakerConstants.USER_FIRST_NAME, userBean.getUserFirstName());
+			request.setAttribute(RecipeMakerConstants.USER_LAST_NAME, userBean.getUserLastName());
+			request.setAttribute(RecipeMakerConstants.USER_EMAIL_ID, userBean.getUserEmailID());
+			request.setAttribute(RecipeMakerConstants.USER_ABOUT_ME, userBean.getAboutMe());
+			request.setAttribute(RecipeMakerConstants.USER_NAME, userBean.getUserName());
+			request.setAttribute(RecipeMakerConstants.USER_PASSWORD, userBean.getPassword());
+			request.setAttribute(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST, userBean.getFavouriteRecipeList());
+			request.setAttribute(RecipeMakerConstants.USER_CREATED_RECIPE, userBean.getCreatedRecipe());
+			request.setAttribute(RecipeMakerConstants.UNIQUE_ID, userBean.get_id());
+		}		
 	}
 }

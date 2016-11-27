@@ -19,7 +19,7 @@ import edu.fullerton.cpsc.cpscRecipe.beans.RecipeBean;
 import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.classes.SignUpLoginSuperClass;
-import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
+import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
 import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
 
 @Controller

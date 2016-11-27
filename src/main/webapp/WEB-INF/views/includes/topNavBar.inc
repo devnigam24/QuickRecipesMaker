@@ -1,13 +1,13 @@
 <nav class="light-blue lighten-1" role="navigation">
 	<div class="nav-wrapper container">
 		<!-- <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
-		<c:if test="${userInSession != null}">
+		<c:if test="${userFirstName != null}">
 			<a href="#" data-activates="slide-out" class="left menuButton">
 				<i class="material-icons">menu</i>
 			</a> 
 		</c:if>
 		<a id="logo-container" href="#"	class="brand-logo">QuickRecipeFinder</a>
-		<c:if test="${userInSession == null}">
+		<c:if test="${userFirstName == null}">
 			<ul class="right hide-on-med-and-down">
 				<li><a class="modal-trigger waves-effect waves-light" href="#Register">Register</a></li>
 			</ul>

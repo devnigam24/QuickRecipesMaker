@@ -14,12 +14,13 @@
 <body>
 	<%@ include file="includes/topNavBar.inc"%>
 	<%@ include file="includes/leftNavigation.inc"%>
+	<%@ include file="includes/errorsAndMessages.inc"%>
 	<main class="container center paddinTop3em" >
 		<div class="section" id="mainContainer">
 		</div>
 			<!--   Icon Section   -->
 			
-			aaa${userInSession}
+			aaa${userName}
 		<div class="row">
 			<div class="col s12 m4">
 				<div class="icon-block">

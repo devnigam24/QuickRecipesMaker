@@ -42,33 +42,13 @@
 						<div class="card-action">
 				
 							<div class="row">
-								<form action="favouriteUnfavouriteAction" id="favouriteUnfavouriteForm">
-									<%@ include file="includes/recipeHiddenFields.inc"%>
-									<div class="col s8">
-										<a onclick="favouriteUnfavouriteAction('favouriteUnfavouriteForm')">Favourite</a>
-									</div>
-								</form>
-								<form action="shareThisRecipe" id="shareForm">
-									<%@ include file="includes/recipeHiddenFields.inc"%>
-									<div id="share" class="modal modal-fixed-footer">
-										<div class="modal-content">
-											<h4>Share</h4>
-											<div class="row">
-												<div class="input-field col s12">
-													<input id="emailId" name="shareEmailId" type="email" class="active validate" required
-														and aria-required="true"> <label for="emailId">Email Id</label>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button class="modal-action modal-close btn-flat">Cancel</button>
-											<button class="btn-flat" onclick="shareThisRecipe('shareForm')" type="submit">Share</button>
-										</div>
-									</div>
+				
+								<div class="col s8">
+									<a href="#">UnFavourite</a>
+								</div>
 									<div class="col s4">
-										<a class="modal-trigger waves-effect waves-light" href="#share">Share</a>
+										<a href="shareThisRecipe">Share</a>
 									</div>
-								</form>
 								<div class="col s4">
 									<a href="<%=key.getMoreInfoUrl()%>" target="_blank">more Info</a>
 								</div>

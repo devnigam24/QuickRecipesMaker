@@ -17,12 +17,12 @@ import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.classes.SignUpLoginSuperClass;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
-import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
+import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
 import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
 
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
-public class SignUpController extends SignUpLoginSuperClass implements CPSCController{
+public class SignUpController extends SignUpLoginSuperClass implements CPSCUserController{
 
 	@RequestMapping(value = RecipeMakerConstants.SIGN_UP_THIS_USER_URL, method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest request,UserBean userBean,BindingResult result) throws Exception {
@@ -32,15 +32,16 @@ public class SignUpController extends SignUpLoginSuperClass implements CPSCContr
 	@RequestMapping(value = RecipeMakerConstants.SIGN_UP_THIS_USER_URL, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request,UserBean userBean,BindingResult result) throws Exception {		
 		if (this.validateFormFields(userBean, result)) {
-			MongoClientURI uri  = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159767.mlab.com:59767/quickrecipemaker"); 
+			MongoClientURI uri  = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159747.mlab.com:59747/user"); 
 	        MongoClient client = new MongoClient(uri);
 	        @SuppressWarnings("deprecation")
 			DB db = client.getDB(uri.getDatabase());
 	        DBCollection oneUser = db.getCollection(userBean.getUserName());
-	        BasicDBObject[] userData = CPSC476Util.getJSONObjectFromUserBean(userBean);
-	        oneUser.insert(userData);
+	        final BasicDBObject[] UserData = { CPSC476Util.getJSONObjectFromUserBean(userBean) };
+	        oneUser.insert(UserData);
 	        client.close();
-	        request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
+	        request.setAttribute(RecipeMakerConstants.USER_IN_SESSION, CPSC476Util.getUserBeanObjectFronJSON(CPSC476Util.getJSONObjectFromUserBean(userBean)));
+			CPSC476Util.setValuesInRequest(request,CPSC476Util.getUserBeanObjectFronJSON(CPSC476Util.getJSONObjectFromUserBean(userBean)));
 	        return RecipeMakerConstants.DASHBOARD_PAGE;
 		} else {
 			this.setDefaultValues(request, result);

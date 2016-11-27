@@ -3,7 +3,7 @@
 	<div id="Login" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>Login</h4>
-			<%@ include file="inputValidationFormServerSideError.inc"%>
+			<%@ include file="errorsAndMessages.inc"%>
 			<div class="row">
 				<div class="input-field col s12">
 					<input id="UserName" name="userName" type="text" class="active validate" required

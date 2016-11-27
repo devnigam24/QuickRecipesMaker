@@ -27,8 +27,17 @@ public class UserBean {
 	private ArrayList<String> followingList;
 	private int favouriteRecipeCount;
 	private ArrayList<String> favouriteRecipeList;
+	private String _id;
 	
-	
+
+	public String get_id() {
+		return _id;
+	}
+
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
 	public String getAboutMe() {
 		if(null == aboutMe){
 			aboutMe =  "";

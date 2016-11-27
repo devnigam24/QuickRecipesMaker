@@ -20,12 +20,12 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.classes.SignUpLoginSuperClass;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
-import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
+import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
 import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
 
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
-public class UpdateProfileController extends SignUpLoginSuperClass implements CPSCController{
+public class UpdateProfileController extends SignUpLoginSuperClass implements CPSCUserController{
 	
 	@RequestMapping(value = RecipeMakerConstants.UPDATE_PROFILE, method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest request, UserBean userBean, BindingResult result) throws Exception {
@@ -34,7 +34,7 @@ public class UpdateProfileController extends SignUpLoginSuperClass implements CP
 	
 	@RequestMapping(value = RecipeMakerConstants.UPDATE_PROFILE, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request, UserBean userBean, BindingResult result) throws Exception {		
-		MongoClientURI uri  = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159767.mlab.com:59767/quickrecipemaker"); 
+		MongoClientURI uri  = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159747.mlab.com:59747/user"); 
         @SuppressWarnings("resource")
 		MongoClient client = new MongoClient(uri);
         @SuppressWarnings("deprecation")
@@ -59,7 +59,7 @@ public class UpdateProfileController extends SignUpLoginSuperClass implements CP
         	System.out.println(obj4.getN());
         	System.out.println(obj5.getN());
         	client.close();
-        	CPSC476Util.setUpdatedUserValuesInSession(request,userBean);
+        	CPSC476Util.setValuesInRequest(request, userBean);
 	        return RecipeMakerConstants.EDIT_PROFILE_URL;
 		} else {
 			this.setDefaultValues(request, result);

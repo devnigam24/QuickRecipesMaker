@@ -3,7 +3,7 @@
 	<div id="Register" class="modal modal-fixed-footer">
 		<div class="modal-content">
 			<h4>New User ?</h4>
-			<%@ include file="inputValidationFormServerSideError.inc"%>
+			<%@ include file="errorsAndMessages.inc"%>
 			<div class="row">
 				<div class="row">
 					<div class="input-field col s6">

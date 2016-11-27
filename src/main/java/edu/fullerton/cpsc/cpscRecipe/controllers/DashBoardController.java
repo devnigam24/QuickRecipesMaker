@@ -17,7 +17,7 @@ import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
-import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
+import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
 
 /**
  * @author Devvrat Nigam
@@ -25,7 +25,7 @@ import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCController;
  */
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
-public class DashBoardController extends RecipeClass implements CPSCController{
+public class DashBoardController extends RecipeClass implements CPSCUserController{
 
 	private static final Logger logger = Logger.getLogger(DashBoardController.class);
 	
@@ -33,9 +33,9 @@ public class DashBoardController extends RecipeClass implements CPSCController{
 	public String handleGet(HttpServletRequest request, UserBean userBean,BindingResult result) throws Exception {
 		logger.log(Level.INFO, "handleGet enterd Successfully" );
 		if(super.checkPreConditions(request)){
-			ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
+			/*ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
 			UserBean userData = (UserBean)ac.getBean("mockUserBean");
-			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
+			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);*/
 			return RecipeMakerConstants.HOME_PAGE_URL;
 		}else{
 			return RecipeMakerException.throwErrorWithoutPage(request);

@@ -12,9 +12,13 @@ public class RecipeMakerConstants {
 	
 	public static final String ADD_RECIPE_URL = "addRecipe";
 	
+	public static final String ADD_THIS_RECIPE = "addThisRecipe";
+	
 	public static final String RECIPE_SEARCH_URL = "recipeSearch";
 	
 	public static final String SHARE_RECIPE_URL = "shareRecipe";	
+	
+	public static final String GET_MY_CREATED_RECIPES = "getMyCreatedRecipes";	
 	
 	public static final String GET_FOLLOWING_URL = "getFollowing";
 	
@@ -95,5 +99,15 @@ public class RecipeMakerConstants {
 	public static final String HEALTH_LABEL = "healthLabels";
 	
 	public static final String SHARE_THIS_RECIPE = "shareThisRecipe";
+	
+	public static final String RECIPE_CREATED_BY = "createdBy";
+	
+	public static final String UNIQUE_ID = "_id";	
+	
+	public static final String FAVOURITE_UNFAVOURITE_ACTION = "favouriteUnfavouriteAction";	
+	
+	public static final String CUSTOM_MESSAGE = "myCustomMessage";	
+	
+	
 
 }

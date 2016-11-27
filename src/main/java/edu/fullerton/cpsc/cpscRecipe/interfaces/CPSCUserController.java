@@ -19,7 +19,7 @@ import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
  * @author Devvrat Nigam
  *
  */
-public abstract interface CPSCController {
+public abstract interface CPSCUserController {
 
 	/*
 	 * handles post request

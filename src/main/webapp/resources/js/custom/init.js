@@ -19,16 +19,23 @@ function setDefautValues(){
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     
-    $('.chips').material_chip();
-    $('.chips-placeholder').material_chip({
+    $('.chips').each(function(){
+    	$("#"+this.id).material_chip();
+    });
+ 
+	$("#ingredientsListChips").material_chip({
         placeholder: '+ Ingredients',
         secondaryPlaceholder: '+ Tag',
-    });
-
-    var chip = {
-        ingredient: 'chip content',
-          id: 1,
-    };
+	});
+	$("#dietLabelsListChips").material_chip({
+		placeholder: '+ Diets Labels',
+		secondaryPlaceholder: '+ Tag',
+	});
+	$("#healthLabelsListChips").material_chip({
+		placeholder: '+ Health Labels',
+		secondaryPlaceholder: '+ Tag',
+	});
+	
     $(".drag-target").trigger('click');
     $('select').material_select();
 }
@@ -81,5 +88,33 @@ function searchRecipe(formID){
 	
 	var dataToPopulate = $("#"+formID).serialize();
 	dataToPopulate = dataToPopulate + "&ingredientsList=" + ingredientsListAsString;
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
+}
+
+function addRecipe(idname){
+	$('input[name="ingredientsList"]').val(getChipData("ingredientsListChips"));
+	$('input[name="dietLabels"]').val(getChipData("dietLabelsListChips"));
+	$('input[name="healthLabels"]').val(getChipData("healthLabelsListChips"));	
+	
+	var dataToPopulate = $("#"+idname).serialize();
+	ajaxJsonUrl($("#"+idname).attr('action'),dataToPopulate,$("#"+idname).attr('method'));
+}
+
+function getChipData(chipDivName){
+	var dataString = "";
+	$("#"+chipDivName+" .chip").each(function(){
+		dataString = dataString + this.firstChild.textContent + ","; 		
+	});
+	dataString = dataString.substring(0, dataString.lastIndexOf(","));
+	return dataString;
+}
+
+function favouriteUnfavouriteAction(formID){
+	var dataToPopulate = $("#"+formID).serialize();
+	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
+}
+
+function shareThisRecipe(formID){
+	var dataToPopulate = $("#"+formID).serialize();
 	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
 }
