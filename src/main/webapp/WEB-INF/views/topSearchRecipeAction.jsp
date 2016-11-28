@@ -1,10 +1,14 @@
 <%@ include file="includes/springResources.inc"%>
 <div class="row">
-	<c:if test="${empty createdRecipesList}">  
-		<p>You have no Recipes associated to your account at this time!! Please use 'create New Recipe' functionality to create some</p>
+	<c:if test="${not empty myCustomMessage}">
+		<p>${myCustomMessage}</p>
 	</c:if>
-	<c:if test="${not empty createdRecipesList}"> 
-	<c:forEach items="${createdRecipesList}" var="oneRecipe">
+	<c:if test="${empty myCustomMessage}">
+	<c:if test="${empty searchRecipeResultArrayList}">  
+		<p>Please Narrow down your search criteria</p>
+	</c:if>
+	<c:if test="${not empty searchRecipeResultArrayList}"> 
+	<c:forEach items="${searchRecipeResultArrayList}" var="oneRecipe">
 		<div class="card col s4">
 			<div class="card-image waves-effect waves-block waves-light">
 				<img class="activator" src="${oneRecipe.imageUrl}">
@@ -17,9 +21,9 @@
 			<div class="card-action velo1">
 				<form action="favouriteUnfavouriteAction" id="favouriteUnfavouriteForm">
 					<%@ include file="includes/recipeHiddenFields.inc"%>
-					<input type="hidden" name="action" value="unfavourite">
 					<input type="hidden" name="recipeTodelete" value="${oneRecipe._id}"/>
 					<input type="hidden" name="userName" value="${userName}"/>
+					<input type="hidden" name="action" value="signUp">
 					<div class="col s4">
 						<a href="#" onclick="favouriteUnfavouriteAction('favouriteUnfavouriteForm')">
 							<i  class="material-icons">star</i></a>
@@ -43,8 +47,7 @@
 						</div>
 						<div class="modal-footer">
 							<button class="modal-action modal-close btn-flat">Cancel</button>
-							<button class="btn-flat" onclick="shareThisRecipe('shareForm')"
-								type="submit">Share</button>
+							<button class="btn-flat" onclick="shareThisRecipe('shareForm')" type="submit">Share</button>
 						</div>
 					</div>
 				</form>
@@ -72,17 +75,10 @@
 					<c:forEach items="${oneRecipe.healthLabels}" var="health">
 						<c:out value="${health}" />
 					</c:forEach>
-				</p><br>
-				<p>
-					<form action="deleteThisRecipe" id="deleteRecipeForm" method="POST">
-						<input type="hidden" name="recipeTodelete" value="${oneRecipe._id}"/>
-						<input type="hidden" name="userName" value="${userName}"/>
-						<a href="#" onclick="shareThisRecipe('deleteRecipeForm')">
-						<i  class="material-icons">delete</i></a>
-					</form>					
 				</p>
 			</div>
 		</div>
 	</c:forEach>
 	</c:if>
-</div>
+	</c:if>
+	</div>

@@ -22,7 +22,7 @@ public class RecipeMakerConstants {
 	
 	public static final String GET_FOLLOWING_URL = "getFollowing";
 	
-	public static final String RECIPE_DETAILS_FAV_URL = "recipeDetailsFav";	
+	public static final String RECIPE_FAV_LIST = "recipeDetailsFav";	
 	
 	public static final String SIGN_UP_THIS_USER_URL = "signUpThisUser";	
 	
@@ -31,6 +31,8 @@ public class RecipeMakerConstants {
 	public static final String LOGOUT = "logout";		
 	
 	public static final String DASHBOARD_PAGE = "userDashboard";	
+	
+	public static final String DASHBOARD_PAGE_AJAX = "ajaxUserDashboard";	
 	
 	public static final String USER_FIRST_NAME = "userFirstName";
 	
@@ -43,7 +45,7 @@ public class RecipeMakerConstants {
 	public static final String USER_EMAIL_ID = "userEmailID";
 	
 	public static final String USER_ABOUT_ME = "aboutMe";
-	
+		
 	public static final String USER_CREATED_RECIPE_COUNT = "createRecipeCount";
 	
 	public static final String USER_CREATED_RECIPE = "createdRecipe";
@@ -106,8 +108,26 @@ public class RecipeMakerConstants {
 	
 	public static final String FAVOURITE_UNFAVOURITE_ACTION = "favouriteUnfavouriteAction";	
 	
-	public static final String CUSTOM_MESSAGE = "myCustomMessage";	
+	public static final String CUSTOM_MESSAGE = "myCustomMessage";
 	
+	public static final String CREATED_RECIPES_LIST = "createdRecipesList";	
 	
+	public static final String DELETE_THIS_RECIPE = "deleteThisRecipe";	
+	
+	public static final String RECIPE_TO_DELETE = "recipeTodelete";	
+	
+	public static final String TOP_SEARCH_RECIPE = "topSearchRecipeAction";
 
+	public static final String MAIL_BODY = "mailBody";	
+	
+	public static final String MAIL_SUBJECT = "mailSubject";
+	
+	public static final String MAIL_RECIPIENT = "mailRecipient";
+	
+	public static final String MAIL_SENDER = "mailSender";
+	
+	public static final String GUEST_RECIPE_SHOW = "guestRecipeShow";
+	
+	
+	
 }

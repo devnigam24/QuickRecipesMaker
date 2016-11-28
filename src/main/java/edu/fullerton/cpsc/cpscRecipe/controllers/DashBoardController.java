@@ -18,6 +18,7 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
+import edu.fullerton.cpsc.cpscRecipe.util.CPSCUtil;
 
 /**
  * @author Devvrat Nigam
@@ -35,6 +36,7 @@ public class DashBoardController extends RecipeClass implements CPSCUserControll
 		if(super.checkPreConditions(request)){
 			/*ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
 			UserBean userData = (UserBean)ac.getBean("mockUserBean");
+			CPSCUtil.setValuesInRequest(request, userData);
 			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);*/
 			return RecipeMakerConstants.HOME_PAGE_URL;
 		}else{

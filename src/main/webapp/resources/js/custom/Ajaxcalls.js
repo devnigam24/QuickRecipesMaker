@@ -7,6 +7,7 @@ function ajaxJsonUrl(url, quertString, methodType) {
 		crossDomain: true,
 		dataType : "html",
 		data : quertString,
+		beforeSend : beforeAjaxCallAction('mainContainer'),
 		success : ajaxSuccessFunction,
 		failure : ajaxErrorFunction,
 		done : afterAjaxCallFunction
@@ -17,11 +18,8 @@ function ajaxGeturlForSideNav(url, divIdToReplace) {
 	$.ajax({
 		url : url,
 		type : "GET",
-		success : function(data) {			
-			$('#' + divIdToReplace).html('');	
-			$('#' + divIdToReplace).html(preLoder);
-			$(".menuButton").trigger("click");
-			$(".drag-target").trigger('click');
+		beforeSend : beforeAjaxCallAction(divIdToReplace),
+		success : function(data) {
 			setTimeout(function() {				
 				$('#' + divIdToReplace).html(data);								
 				setDefautValues();
@@ -36,12 +34,15 @@ function ajaxGeturlForSideNav(url, divIdToReplace) {
 	});
 }
 
-function ajaxSuccessFunction(data){
-	var divIdToReplace = "mainContainer";
+function beforeAjaxCallAction(divIdToReplace){
 	$('#' + divIdToReplace).html('');	
 	$('#' + divIdToReplace).html(preLoder);
 	$(".menuButton").trigger("click");
 	$(".drag-target").trigger('click');
+}
+
+function ajaxSuccessFunction(data){
+	var divIdToReplace = "mainContainer";
 	setTimeout(function() {				
 		$('#' + divIdToReplace).html(data);								
 		setDefautValues();

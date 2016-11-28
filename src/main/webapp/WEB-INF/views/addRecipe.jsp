@@ -2,7 +2,7 @@
 <form class="col s12" id="addRecipeForm" action="addThisRecipe" method="POST">
 	<input type="hidden" name="ingredientsList" value=""/>
 	<input type="hidden" name="imageUrl" value="http://www.weightwatchers.ca/images/4105/dynamic/foodandrecipes/2013/06/us_img_recipe_default_600x600.jpg"/>
-	<input type="hidden" name="moreInfoUrl" value="www.google.com"/>
+	<input type="hidden" name="moreInfoUrl" value=""/>
 	<input type="hidden" name="dietLabels" value=""/>
 	<input type="hidden" name="healthLabels" value=""/>
 	<input type="hidden" name="createdBy" value="${userName}"/>
@@ -28,6 +28,13 @@
 				</div>
 			</div>
 
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea id="stepsToCook" required class="materialize-textarea"></textarea>
+					<label for="textarea1">Steps To Cook</label>
+				</div>
+			</div>
+	
 			<div class="row">
 				<div class="input-field col s6">
 						<div id="ingredientsListChips" class="chips chips-placeholder"></div>

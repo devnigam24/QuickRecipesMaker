@@ -16,7 +16,6 @@ $(document).ready(function(){
   });
 
 function setDefautValues(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal-trigger').leanModal();
     
     $('.chips').each(function(){
@@ -38,6 +37,10 @@ function setDefautValues(){
 	
     $(".drag-target").trigger('click');
     $('select').material_select();
+    
+    $('.chip').each(function(){
+    	this.remove();
+    });
 }
 $("#dropdowntimer").click(function(){
     
@@ -95,8 +98,10 @@ function addRecipe(idname){
 	$('input[name="ingredientsList"]').val(getChipData("ingredientsListChips"));
 	$('input[name="dietLabels"]').val(getChipData("dietLabelsListChips"));
 	$('input[name="healthLabels"]').val(getChipData("healthLabelsListChips"));	
+		
 	
 	var dataToPopulate = $("#"+idname).serialize();
+	dataToPopulate = dataToPopulate + '&moreInfoUrl='+$('#stepsToCook').val();
 	ajaxJsonUrl($("#"+idname).attr('action'),dataToPopulate,$("#"+idname).attr('method'));
 }
 

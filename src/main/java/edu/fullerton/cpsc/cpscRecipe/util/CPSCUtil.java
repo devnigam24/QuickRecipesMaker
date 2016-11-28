@@ -24,7 +24,7 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
  * @author Devvrat Nigam
  *
  */
-public class CPSC476Util {
+public class CPSCUtil {
 
 	public static BasicDBObject getJSONObjectFromUserBean(UserBean thisUserBean) {
 		BasicDBObject userJson = new BasicDBObject();
@@ -47,6 +47,21 @@ public class CPSC476Util {
 		userJson.put(RecipeMakerConstants.UNIQUE_ID, thisUserBean.get_id());
 		return userJson;
 
+	}
+	
+	public static RecipeBean getRecipeBeanObjectFromJson(DBObject RecipeJson) {
+		RecipeBean rb = new RecipeBean();
+		rb.set_id(RecipeJson.get(RecipeMakerConstants.UNIQUE_ID).toString());
+		rb.setCreatedBy(RecipeJson.get(RecipeMakerConstants.RECIPE_CREATED_BY).toString());
+		rb.setRecipeName(RecipeJson.get(RecipeMakerConstants.RECIPE_NAME).toString());
+		rb.setImageUrl(RecipeJson.get(RecipeMakerConstants.IMAGE_URL).toString());
+		rb.setMoreInfoUrl(RecipeJson.get(RecipeMakerConstants.MORE_INF_OURL).toString());
+		rb.setIngredientsList((ArrayList<String>)RecipeJson.get(RecipeMakerConstants.INGREDIENTS_LIST));
+		rb.setDietLabels((ArrayList<String>)RecipeJson.get(RecipeMakerConstants.DIET_LABELS));
+		rb.setHealthLabels((ArrayList<String>)RecipeJson.get(RecipeMakerConstants.HEALTH_LABEL));
+		rb.setCalorieAmount((Double)RecipeJson.get(RecipeMakerConstants.CALORIE_AMOUNT));
+	    rb.setCookingTime(RecipeJson.get(RecipeMakerConstants.COOKING_TIME).toString());
+		return rb;
 	}
 
 	public static UserBean getUserBeanObjectFronJSON(DBObject returnObj) {
@@ -72,6 +87,7 @@ public class CPSC476Util {
 		
 		user.setFavouriteRecipeCount((Integer)returnObj.get(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_COUNT));
 		user.setFavouriteRecipeList((ArrayList<String>) returnObj.get(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST));
+		if(null != returnObj.get(RecipeMakerConstants.UNIQUE_ID))
 		user.set_id(returnObj.get(RecipeMakerConstants.UNIQUE_ID).toString());
 		
 		return user;
@@ -92,6 +108,8 @@ public class CPSC476Util {
 			newBean.setHealthLabels(recipeObject.getJSONArray("healthLabels"));
 			newBean.setCalorieAmount(Double.parseDouble(recipeObject.get("calories").toString()) / 
 									Double.parseDouble(recipeObject.get("yield").toString()));
+			newBean.setCookingTime("15");
+			newBean.setCreatedBy("EdmanApi");
 			searchRecipeList.add(newBean);
 		}		
 		return searchRecipeList;
@@ -110,9 +128,10 @@ public class CPSC476Util {
 		RecipeJson.put(RecipeMakerConstants.MORE_INF_OURL, thisRecipe.getMoreInfoUrl());
 		RecipeJson.put(RecipeMakerConstants.INGREDIENTS_LIST, thisRecipe.getIngredientsList());
 		RecipeJson.put(RecipeMakerConstants.DIET_LABELS, thisRecipe.getDietLabels());
+		RecipeJson.put(RecipeMakerConstants.HEALTH_LABEL, thisRecipe.getHealthLabels());
 		RecipeJson.put(RecipeMakerConstants.COOKING_TIME, thisRecipe.getCookingTime());
 		RecipeJson.put(RecipeMakerConstants.CALORIE_AMOUNT, thisRecipe.getCalorieAmount());	
-		if(null != thisRecipe.getCreatedBy() && "".equals(thisRecipe.getCreatedBy())){
+		if(null != thisRecipe.getCreatedBy() && !"".equals(thisRecipe.getCreatedBy())){
 			RecipeJson.put(RecipeMakerConstants.RECIPE_CREATED_BY, thisRecipe.getCreatedBy());
 		}else{
 			RecipeJson.put(RecipeMakerConstants.RECIPE_CREATED_BY, "EdmanApi");
@@ -121,6 +140,8 @@ public class CPSC476Util {
 		return recipeData;
 
 	}
+	
+	
 
 	public static void setValuesInRequest(HttpServletRequest request, UserBean userBean) {
 		if(null != userBean){
@@ -130,8 +151,22 @@ public class CPSC476Util {
 			request.setAttribute(RecipeMakerConstants.USER_ABOUT_ME, userBean.getAboutMe());
 			request.setAttribute(RecipeMakerConstants.USER_NAME, userBean.getUserName());
 			request.setAttribute(RecipeMakerConstants.USER_PASSWORD, userBean.getPassword());
-			request.setAttribute(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST, userBean.getFavouriteRecipeList());
+			
+			request.setAttribute(RecipeMakerConstants.USER_CREATED_RECIPE_COUNT, userBean.getCreateRecipeCount());
 			request.setAttribute(RecipeMakerConstants.USER_CREATED_RECIPE, userBean.getCreatedRecipe());
+			
+			request.setAttribute(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_COUNT, userBean.getFavouriteRecipeCount());
+			request.setAttribute(RecipeMakerConstants.USER_FAVOURTITE_RECIPE_LIST, userBean.getFavouriteRecipeList());
+			
+			request.setAttribute(RecipeMakerConstants.USER_FOLLOWERS_COUNT, userBean.getFollowersCount());
+			request.setAttribute(RecipeMakerConstants.USER_FOLLOWERS_COUNT, userBean.getFollowersCount());	
+			
+			request.setAttribute(RecipeMakerConstants.USER_FOLLOWING_COUNT, userBean.getFollowingCount());
+			request.setAttribute(RecipeMakerConstants.USER_FOLLOWING_LIST, userBean.getFollowingList());		
+			
+			request.setAttribute(RecipeMakerConstants.USER_SHARED_RECIPE_COUNT, userBean.getSharedRecipeCount());
+			request.setAttribute(RecipeMakerConstants.USER_CREATED_RECIPE, userBean.getSharedRecipes());			
+			
 			request.setAttribute(RecipeMakerConstants.UNIQUE_ID, userBean.get_id());
 		}		
 	}

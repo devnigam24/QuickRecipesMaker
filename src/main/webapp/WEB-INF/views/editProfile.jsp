@@ -45,19 +45,36 @@
 					class="left blue-text text-darken-2 largeText">About Me :</label>
 			</div>
 		</div>
-		<div class="row">
-			<div class="input-field col s6">
-				<input disabled id="favrecipelist" type="text" class="validate darken-1 xLargerFont"
-					value="${favouriteRecipeList}"> <label
-					for="favrecipelist" class="left blue-text text-darken-2 largeText">Favorite Recipe:</label>
-			</div>
-		</div>
 
 		<div class="row">
 			<div class="input-field col s6">
 				<input disabled id="recipecreated" type="text" class="validate darken-1 xLargerFont"
-					value="${createdRecipe}"> <label
-					for="recipecreated" class="left blue-text text-darken-2 largeText">Recipe Created :</label>
+					value="${createRecipeCount}"> <label
+					for="recipecreated" class="left blue-text text-darken-2 largeText">Recipe Created:</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="favrecipelist" type="text" class="validate darken-1 xLargerFont"
+					value="${favouriteRecipeCount}"> <label
+					for="favrecipelist" class="left blue-text text-darken-2 largeText">Favorite :</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="favrecipelist" type="text" class="validate darken-1 xLargerFont"
+					value="${followingCount}"> <label
+					for="favrecipelist" class="left blue-text text-darken-2 largeText">Following :</label>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="input-field col s6">
+				<input disabled id="favrecipelist" type="text" class="validate darken-1 xLargerFont"
+					value="${sharedRecipeCount}"> <label
+					for="favrecipelist" class="left blue-text text-darken-2 largeText">Shares :</label>
 			</div>
 		</div>
 	</div>
@@ -67,3 +84,11 @@
 		<a class="waves-effect waves-light btn hide" id="saveButton" onclick="saveProfile('updateProfileForm')">Save</a>
 	</div>
 </form>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#leftFirstNameLastName").text($("#fname").val().trim() + " " + $("#lname").val().trim());
+	$("#leftEmail").text($("#emailid").val().trim());
+});
+	
+</script>

@@ -23,7 +23,7 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeClass;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCRecipeController;
-import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
+import edu.fullerton.cpsc.cpscRecipe.util.CPSCUtil;
 
 
 @Controller
@@ -36,13 +36,12 @@ public class AddRecipeController extends RecipeClass implements CPSCRecipeContro
 	
 	@RequestMapping(value = RecipeMakerConstants.ADD_THIS_RECIPE, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request, RecipeBean recipe, BindingResult result) throws Exception {
-		if (true){//this.validateFormFields(recipe, result)) {
 			MongoClientURI uri  = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159737.mlab.com:59737/recipe"); 
 	        MongoClient client = new MongoClient(uri);
 	        @SuppressWarnings("deprecation")
 			DB db = client.getDB(uri.getDatabase());
 	        DBCollection oneUser = db.getCollection(recipe.getRecipeName());
-	        BasicDBObject[] recipeJson = CPSC476Util.getJSONObjectFromRecipeBean(recipe);
+	        BasicDBObject[] recipeJson = CPSCUtil.getJSONObjectFromRecipeBean(recipe);
 	        oneUser.insert(recipeJson);
 	        
 	        
@@ -55,11 +54,8 @@ public class AddRecipeController extends RecipeClass implements CPSCRecipeContro
 	    	mapRecipeToUser(request,recipeId,(UserBean)request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION));
 	        client.close();
 	        request.setAttribute("myCustomMessage","recipeAdded");
-	        return RecipeMakerConstants.ADD_RECIPE_URL;
-		} else {
-			this.setDefaultValues(request, result);
-			return RecipeMakerException.throwErrorOnSpecificPageWithoutMessage(request,RecipeMakerConstants.HOME_PAGE_URL);
-		}
+	        LeftNavigationController obj = new LeftNavigationController();
+	        return obj.shareThisRecipe(request);
 	}
 
 	private void mapRecipeToUser(HttpServletRequest request, String recipeId, UserBean userBean) {
@@ -84,7 +80,7 @@ public class AddRecipeController extends RecipeClass implements CPSCRecipeContro
 		System.out.println(obj1.getN());
 		System.out.println(obj2.getN());
 		client.close();
-		CPSC476Util.setValuesInRequest(request, userBean);
+		CPSCUtil.setValuesInRequest(request, userBean);
 	}
 
 }
