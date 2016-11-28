@@ -41,10 +41,10 @@ public class SignUpLoginSuperClass {
 		for (Object object : result.getAllErrors()) {
 		    if(object instanceof FieldError) {
 		        FieldError fieldError = (FieldError) object;
-		        ErrorCodesArrayList.add(fieldError.getCode());
+		        ErrorCodesArrayList.add(fieldError.getDefaultMessage());
 		    }else if(object instanceof ObjectError) {
 		        ObjectError objectError = (ObjectError) object;
-		        ErrorCodesArrayList.add(objectError.getCode());
+		        ErrorCodesArrayList.add(objectError.getDefaultMessage());
 		    }
 		}		
 		request.setAttribute(RecipeMakerConstants.ERROR_LIST, ErrorCodesArrayList);	

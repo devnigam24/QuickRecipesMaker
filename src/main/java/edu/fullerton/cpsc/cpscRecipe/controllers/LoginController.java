@@ -3,6 +3,8 @@ package edu.fullerton.cpsc.cpscRecipe.controllers;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -49,9 +51,10 @@ public class LoginController extends SignUpLoginSuperClass implements CPSCUserCo
         	CPSCUtil.setValuesInRequest(request, userBean);
 	        return RecipeMakerConstants.DASHBOARD_PAGE;
 		} else {
-			this.setDefaultValues(request, result);
+			request.setAttribute("myCustomMessage", "Username not found in system You need to sign up first!!");
 			return RecipeMakerException.throwErrorOnSpecificPageWithoutMessage(request,RecipeMakerConstants.HOME_PAGE_URL);
 		}
+        
 	}
 
 }

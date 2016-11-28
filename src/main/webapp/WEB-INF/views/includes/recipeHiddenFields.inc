@@ -7,3 +7,4 @@
 <input type="hidden" name="calorieAmount" value="${oneRecipe.calorieAmount}">
 <input type="hidden" name="cookingTime" value="${cookingTime}">
 <input type="hidden" name="createdBy" value="${userName}"/>
+<input type="hidden" name="_id" value="${oneRecipe._id}"/>

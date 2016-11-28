@@ -4,7 +4,9 @@
 package edu.fullerton.cpsc.cpscRecipe.util;
 
 import java.awt.List;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -169,5 +171,11 @@ public class CPSCUtil {
 			
 			request.setAttribute(RecipeMakerConstants.UNIQUE_ID, userBean.get_id());
 		}		
+	}
+	
+	public static ArrayList<String> getArrayListFromString(String s){		
+		s = s.substring(s.indexOf("[[") + 2 , s.indexOf("]]"));
+		ArrayList<String> someList = new ArrayList<String>(Arrays.asList(s.split(",")));
+		return someList;
 	}
 }

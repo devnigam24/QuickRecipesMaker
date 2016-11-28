@@ -15,22 +15,22 @@
 				</span>
 			</div>
 			<div class="card-action velo1">
-				<form action="favouriteUnfavouriteAction" id="favouriteUnfavouriteForm">
+				<form action="favouriteUnfavouriteAction" id="favForm${oneRecipe._id}">
 					<%@ include file="includes/recipeHiddenFields.inc"%>
 					<input type="hidden" name="recipeTodelete" value="${oneRecipe._id}"/>
 					<input type="hidden" name="userName" value="${userName}"/>
 					<input type="hidden" name="action" value="favourite">
 					<div class="col s4">
-						<a href="#" onclick="favouriteUnfavouriteAction('favouriteUnfavouriteForm')">
+						<a href="#" onclick="favouriteUnfavouriteAction('favForm${oneRecipe._id}')">
 							<i  class="material-icons">star</i></a>
 					</div>
 				</form>	
-				<form action="shareThisRecipe" id="shareForm">
+				<form action="shareThisRecipe" id="shareForm${oneRecipe._id}">
 					<%@ include file="includes/recipeHiddenFields.inc"%>
 					<div class="col s3">
-						<a class="modal-trigger waves-effect waves-light" href="#share"><i class="material-icons">email</i></a>
+						<a class="modal-trigger waves-effect waves-light" href="#share${oneRecipe._id}"><i class="material-icons">email</i></a>
 					</div>
-					<div id="share" class="modal modal-fixed-footer">
+					<div id="share${oneRecipe._id}" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<h4>Share</h4>
 							<div class="row">
@@ -43,15 +43,15 @@
 						</div>
 						<div class="modal-footer">
 							<button class="modal-action modal-close btn-flat">Cancel</button>
-							<button class="btn-flat" onclick="shareThisRecipe('shareForm')"
+							<button class="btn-flat" onclick="shareThisRecipe('shareForm${oneRecipe._id}')"
 								type="submit">Share</button>
 						</div>
 					</div>
 				</form>
 				<div class="col s5">
-					<a href="#moreInfo" class="modal-trigger waves-effect waves-light">
+					<a href="#moreInfo${oneRecipe._id}" class="modal-trigger waves-effect waves-light">
 						<i class="material-icons">launch</i></a>
-					<div id="moreInfo" class="modal modal-fixed-footer">
+					<div id="moreInfo${oneRecipe._id}" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<h4>Steps To create</h4>
 							<div class="row">

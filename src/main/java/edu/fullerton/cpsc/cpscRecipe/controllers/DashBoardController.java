@@ -30,17 +30,18 @@ public class DashBoardController extends RecipeClass implements CPSCUserControll
 
 	private static final Logger logger = Logger.getLogger(DashBoardController.class);
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = RecipeMakerConstants.HOME_PAGE_URL, method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest request, UserBean userBean,BindingResult result) throws Exception {
 		logger.log(Level.INFO, "handleGet enterd Successfully" );
-		if(super.checkPreConditions(request)){
-			/*ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
+		if(false){
+			ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
 			UserBean userData = (UserBean)ac.getBean("mockUserBean");
 			CPSCUtil.setValuesInRequest(request, userData);
-			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);*/
+			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
 			return RecipeMakerConstants.HOME_PAGE_URL;
 		}else{
-			return RecipeMakerException.throwErrorWithoutPage(request);
+			return RecipeMakerConstants.HOME_PAGE_URL;
 		}
 		
 	}

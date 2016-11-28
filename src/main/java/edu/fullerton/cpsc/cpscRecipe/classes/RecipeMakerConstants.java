@@ -117,6 +117,8 @@ public class RecipeMakerConstants {
 	public static final String RECIPE_TO_DELETE = "recipeTodelete";	
 	
 	public static final String TOP_SEARCH_RECIPE = "topSearchRecipeAction";
+	
+	public static final String PUBLIC_VIEW_RECIPE_PAGE = "publicViewRecipePage";
 
 	public static final String MAIL_BODY = "mailBody";	
 	
