@@ -12,6 +12,7 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.heroku.sdk</groupId>
@@ -41,38 +42,54 @@
 
 		<!-- Log4j -->
 		<dependency>
-		    <groupId>log4j</groupId>
-		    <artifactId>log4j</artifactId>
-		    <version>1.2.16</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
 		</dependency>
-		
-		<!--  mongoDB-->
-	    <dependency>
-	        <groupId>org.mongodb</groupId>
-	        <artifactId>mongodb-driver</artifactId>
-	        <version>3.2.2</version>
-	    </dependency>
-	    
-	    <!-- https://mvnrepository.com/artifact/org.json/json -->
+
+		<!-- mongoDB -->
 		<dependency>
-		    <groupId>org.json</groupId>
-		    <artifactId>json</artifactId>
-		    <version>20090211</version>
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongodb-driver</artifactId>
+			<version>3.2.2</version>
 		</dependency>
-		
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
-		    <groupId>commons-io</groupId>
-		    <artifactId>commons-io</artifactId>
-		    <version>2.4</version>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
 		<dependency>
-		    <groupId>javax.mail</groupId>
-		    <artifactId>javax.mail-api</artifactId>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.sun.mail/javax.mail -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>javax.mail</artifactId>
 		    <version>1.5.1</version>
-		</dependency>				    
-	</dependencies>	
+		</dependency>
+				
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>3.2.0.RELEASE</version>
+		</dependency>
+				
+	</dependencies>
 	<build>
 		<plugins>
 		  <plugin>
@@ -86,4 +103,3 @@
 		</plugins>
 	</build>	
 </project>
-
