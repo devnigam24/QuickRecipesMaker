@@ -11,13 +11,20 @@
 <%@ include file="includes/loginForm.inc"%>
 <%@ include file="includes/signUpForm.inc"%>
 </head>
+<style>
+body {
+    background-image: url("<c:url value="/resources/images/homepage.jpg"/>");
+    background-size: 100%;
+    background-position-x: center;
+    background-position-y: center;
+}
+</style>
 <body>
 	<%@ include file="includes/topNavBar.inc"%>
 	<main class="container center paddinTop3em" id="mainContainer">
 		<div class="section">
 			<!--   Icon Section   -->
 			<div class="row">
-				Home page
 				<%@ include file="includes/errorsAndMessages.inc"%>
 			</div>
 		</div>

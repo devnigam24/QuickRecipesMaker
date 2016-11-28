@@ -10,17 +10,16 @@
 <%@ include file="includes/resources.inc"%>
 <%@ include file="includes/loginForm.inc"%>
 <%@ include file="includes/signUpForm.inc"%>
+<%@ include file="includes/topNavBar.inc"%>
+<%@ include file="includes/leftNavigation.inc"%>
+<%@ include file="includes/errorsAndMessages.inc"%>
 </head>
 <body>
-	<%@ include file="includes/topNavBar.inc"%>
-	<%@ include file="includes/leftNavigation.inc"%>
-	<%@ include file="includes/errorsAndMessages.inc"%>
 	<main class="container center paddinTop3em" >
 		<div class="section" id="mainContainer">
 		</div>
-			<!--   Icon Section   -->
-			
-			aaa${userName}
+		<div class="section"><span class="myMessages">Good Evening ${userFirstName}</span></div>
+		<div class="section"><span class="myMessages1">Are you ready for your new Recipe?</span></div>
 		<div class="row">
 			<div class="col s12 m4">
 				<div class="icon-block">

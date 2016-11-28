@@ -29,16 +29,15 @@ public class TopSearchRecipeController{
 	@RequestMapping(value = RecipeMakerConstants.TOP_SEARCH_RECIPE, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request) throws Exception {
 		String searchQuery = request.getParameter("searchQueries");
-		if(null != searchQuery && !"".equals(searchQuery)){
+		if(null != searchQuery || !"".equals(searchQuery)){
+			searchQuery = "chicken";
+		}
 			String urlToHit = "https://api.edamam.com/search?q="+URLEncoder.encode(searchQuery, "UTF-8")+
 					"&app_id=3e85c661&app_key=f9af7085b7825964d3ea39d7e33877ee&from=0&to=6";
 			JSONObject recipeJson = new JSONObject(IOUtils.toString(new URL(urlToHit), Charset.forName("UTF-8")));
 			request.setAttribute(RecipeMakerConstants.SEARCH_RECIPE_RESULT_ARRAYLIST,
 					CPSCUtil.getRecipeArrayList(recipeJson));
-			return RecipeMakerConstants.TOP_SEARCH_RECIPE;
-		}else{
-			return "";
-		}		
+			return RecipeMakerConstants.TOP_SEARCH_RECIPE;		
 	}
 
 }

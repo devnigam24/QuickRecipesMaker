@@ -8,51 +8,42 @@
 	<input type="hidden" name="createdBy" value="${userName}"/>
 	<%@ include file="includes/springResources.inc"%>
 	<div class="row">
-			<div class="row">
-				<div class="input-field col s4">
-					<input id="recipeName" name="recipeName" type="text" class="validate"> 
-					<label for="recipeName">Recipe Name</label>
-				</div>
+		<div class="section"><span class="FormErrorMessage"></span></div>
+		<div class="row">
+			<div class="input-field col s4">
+				<input id="recipeName" name="recipeName" type="text" class="validate"> 
+				<label for="recipeName">Recipe Name</label>
 			</div>
-			<div class="row">
-				<div class="input-field col s4">
-					<input id="cookingTime" name="cookingTime" type="number" class="validate"> <label
-						for="cookingTime">Time</label>
-				</div>
+			<div class="input-field col s4">
+				<input id="cookingTime" name="cookingTime" type="number" class="validate"> <label
+					for="cookingTime">Time (mins)</label>
 			</div>
+			<div class="input-field col s4">
+				<input id="calorieAmount" name="calorieAmount" type="number" class="validate"> <label
+					for="calorieAmount">Calorie</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea id="stepsToCook" required class="materialize-textarea"></textarea>
+				<label for="textarea1">Steps To Cook</label>
+			</div>
+		</div>
 
-			<div class="row">
-				<div class="input-field col s4">
-					<input id="calorieAmount" name="calorieAmount" type="number" class="validate"> <label
-						for="calorieAmount">Calorie</label>
-				</div>
+		<div class="row">
+			<div class="input-field col s4">
+				<div id="ingredientsListChips" class="chips chips-placeholder"></div>
+				<label for="ingredientsListChips" class="left blue-text text-darken-2 largeText">Ingredients List</label>
 			</div>
-
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea id="stepsToCook" required class="materialize-textarea"></textarea>
-					<label for="textarea1">Steps To Cook</label>
-				</div>
+			<div class="input-field col s4">
+				<div id="dietLabelsListChips" class="chips chips-placeholder"></div>
+				<label for="dietLabelsListChips" class="left blue-text text-darken-2 largeText">Diet labels</label>
 			</div>
-	
-			<div class="row">
-				<div class="input-field col s6">
-						<div id="ingredientsListChips" class="chips chips-placeholder"></div>
-						<label for="ingredientsListChips" class="left blue-text text-darken-2 largeText">Ingredients List</label>
-					</div>
+			<div class="input-field col s4">
+				<div id="healthLabelsListChips" class="chips chips-placeholder"></div>
+				<label for="healthLabelsListChips" class="left blue-text text-darken-2 largeText">health labels</label>
 			</div>
-			<div class="row">
-				<div class="input-field col s6">
-						<div id="dietLabelsListChips" class="chips chips-placeholder"></div>
-						<label for="dietLabelsListChips" class="left blue-text text-darken-2 largeText">Diet labels</label>
-					</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s6">
-						<div id="healthLabelsListChips" class="chips chips-placeholder"></div>
-						<label for="healthLabelsListChips" class="left blue-text text-darken-2 largeText">health labels</label>
-					</div>
-			</div>
+		</div>
 	</div>
 	<div class="row">
 		<a class="waves-effect waves-light btn" onclick="reset('updateProfileForm')">Cancel</a>

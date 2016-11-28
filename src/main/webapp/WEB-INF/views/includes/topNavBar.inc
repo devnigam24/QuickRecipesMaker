@@ -6,7 +6,7 @@
 				<i class="material-icons">menu</i>
 			</a> 
 		</c:if>
-		<a id="logo-container" href="#"	class="brand-logo">QuickRecipeFinder</a>
+		<a id="logo-container" href="/RecepieMaker"	class="brand-logo">QuickRecipeFinder</a>
 		<%--<img id="logo-container" href="#" class="brand-logo" src="<c:url value="/resources/images/mainIcon.png" />"/>--%>		
 		<c:if test="${userFirstName == null}">
 			<ul class="right hide-on-med-and-down">

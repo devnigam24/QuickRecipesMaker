@@ -41,6 +41,12 @@ function setDefautValues(){
     $('.chip').each(function(){
     	this.remove();
     });
+    
+    $('.chips').each(function(){
+	$(this).on('chip.add', function(e, chip){
+	    $("label[for="+this.id+"]").hide();
+	  });
+	});
 }
 $("#dropdowntimer").click(function(){
     
@@ -95,10 +101,34 @@ function searchRecipe(formID){
 }
 
 function addRecipe(idname){
+	if($("#recipeName").val().length <=0){
+		$('.FormErrorMessage').text("Please provide a recipe Name");
+		return;
+	}
+	if($("#cookingTime").val().length <=0){
+		$('.FormErrorMessage').text("Please provide a cookingTime");
+		return;
+	}
+	if($("#calorieAmount").val().length <=0){
+		$('.FormErrorMessage').text("Please provide a calorieAmount");
+		return;
+	}
 	$('input[name="ingredientsList"]').val(getChipData("ingredientsListChips"));
+	if($('input[name="ingredientsList"]').val().length <= 0){
+		$('.FormErrorMessage').text("Ingredient List can not be empty");
+		return;
+	}	
 	$('input[name="dietLabels"]').val(getChipData("dietLabelsListChips"));
-	$('input[name="healthLabels"]').val(getChipData("healthLabelsListChips"));	
-		
+	if($('input[name="dietLabels"]').val().length <= 0){
+		$('.FormErrorMessage').text("Diet Labeles can not be empty");
+		return;
+	}
+	$('input[name="healthLabels"]').val(getChipData("healthLabelsListChips"));		
+	if($('input[name="healthLabels"]').val().length <= 0){
+		$('.FormErrorMessage').text("Health Labeles can not be empty");
+		return;
+	}
+	
 	
 	var dataToPopulate = $("#"+idname).serialize();
 	dataToPopulate = dataToPopulate + '&moreInfoUrl='+$('#stepsToCook').val();
@@ -122,4 +152,12 @@ function favouriteUnfavouriteAction(formID){
 function shareThisRecipe(formID){
 	var dataToPopulate = $("#"+formID).serialize();
 	ajaxJsonUrl($("#"+formID).attr('action'),dataToPopulate,$("#"+formID).attr('method'));
+}
+
+function reset(){
+	$("input").each(function(){
+		$(this).attr('disabled',true);
+	});
+	$("#saveButton").addClass("hide");
+	$("#updateButton").removeClass("hide");
 }

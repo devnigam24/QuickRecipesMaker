@@ -31,7 +31,7 @@ public class SignUpController extends SignUpLoginSuperClass implements CPSCUserC
 	
 	@RequestMapping(value = RecipeMakerConstants.SIGN_UP_THIS_USER_URL, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request,UserBean userBean,BindingResult result) throws Exception {
-		if((UserBean) request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION) != null){			
+		if((UserBean) request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION) == null){			
 			if (this.validateFormFields(userBean, result)) {
 				MongoClientURI uri = new MongoClientURI("mongodb://nimesh5:nimesh5@ds159747.mlab.com:59747/user"); 
 		        MongoClient client = new MongoClient(uri);

@@ -33,17 +33,22 @@ public class DashBoardController extends RecipeClass implements CPSCUserControll
 	@SuppressWarnings("unused")
 	@RequestMapping(value = RecipeMakerConstants.HOME_PAGE_URL, method = RequestMethod.GET)
 	public String handleGet(HttpServletRequest request, UserBean userBean,BindingResult result) throws Exception {
-		logger.log(Level.INFO, "handleGet enterd Successfully" );
-		if(false){
-			ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
-			UserBean userData = (UserBean)ac.getBean("mockUserBean");
-			CPSCUtil.setValuesInRequest(request, userData);
-			request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
-			return RecipeMakerConstants.HOME_PAGE_URL;
+		userBean = (UserBean)request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION);
+		if(userBean == null){
+			logger.log(Level.INFO, "handleGet enterd Successfully" );
+			if(false){
+				ApplicationContext ac = new ClassPathXmlApplicationContext("Beans.xml");
+				UserBean userData = (UserBean)ac.getBean("mockUserBean");
+				CPSCUtil.setValuesInRequest(request, userData);
+				request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userData);
+				return RecipeMakerConstants.HOME_PAGE_URL;
+			}else{
+				return RecipeMakerConstants.HOME_PAGE_URL;
+			}
 		}else{
-			return RecipeMakerConstants.HOME_PAGE_URL;
+			CPSCUtil.setValuesInRequest(request, userBean);
+			return RecipeMakerConstants.DASHBOARD_PAGE;
 		}
-		
 	}
 	
 	@RequestMapping(value = RecipeMakerConstants.HOME_PAGE_URL, method = RequestMethod.POST)

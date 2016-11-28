@@ -1,4 +1,3 @@
-
 <form class="col s12" method="POST" action="signUpThisUser" id="signUpForm">
 	<div id="Register" class="modal modal-fixed-footer">
 		<div class="modal-content">
