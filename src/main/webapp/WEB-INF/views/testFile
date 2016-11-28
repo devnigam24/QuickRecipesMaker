@@ -18,11 +18,7 @@
 			<!--   Icon Section   -->
 			<div class="row">
 				Home page
-				<span class="col-xs-12 serverErrorMsg middle">
-					<c:forEach var="serverSideErrors" items="${ErrorList}">
-						<spring:message code="${serverSideErrors}" />
-					</c:forEach>
-				</span>	
+				<%@ include file="includes/errorsAndMessages.inc"%>
 			</div>
 		</div>
 		<br> <br>

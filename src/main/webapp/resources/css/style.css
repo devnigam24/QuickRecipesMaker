@@ -71,5 +71,24 @@ body {
  .xLargerFont{
  	font-size: x-large !important;
  }
- 
-     
+ .card{
+ 	max-width:25em;
+ }
+ .recipeLabel{
+ 	color: darkmagenta;
+    font-size: x-large;
+    font-weight: normal;
+ }
+ .velo{
+ 	max-height: 3em;
+    text-align: -webkit-left;
+    vertical-align: middle;
+    position: relative;
+    padding-top: 10px !important;
+ }
+ .velo1{
+ 	height: 3em;
+    vertical-align: middle;
+    position: relative;
+    padding-top: 10px !important;
+ }

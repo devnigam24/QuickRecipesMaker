@@ -18,7 +18,7 @@ import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.classes.SignUpLoginSuperClass;
 import edu.fullerton.cpsc.cpscRecipe.exception.RecipeMakerException;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCUserController;
-import edu.fullerton.cpsc.cpscRecipe.util.CPSC476Util;
+import edu.fullerton.cpsc.cpscRecipe.util.CPSCUtil;
 
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
@@ -42,11 +42,11 @@ public class LoginController extends SignUpLoginSuperClass implements CPSCUserCo
         	query.put("userName", userBean.getUserName());
         	query.put("password", userBean.getPassword());
         	DBObject returnObj = oneUserCollection.findOne(query);
-        	userBean = CPSC476Util.getUserBeanObjectFronJSON(returnObj);
+        	userBean = CPSCUtil.getUserBeanObjectFronJSON(returnObj);
         	client.close();
         	System.out.println(returnObj);
         	request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userBean);
-        	CPSC476Util.setValuesInRequest(request, userBean);
+        	CPSCUtil.setValuesInRequest(request, userBean);
 	        return RecipeMakerConstants.DASHBOARD_PAGE;
 		} else {
 			this.setDefaultValues(request, result);

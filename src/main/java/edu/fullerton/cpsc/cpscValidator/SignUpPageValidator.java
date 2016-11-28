@@ -26,20 +26,23 @@ public class SignUpPageValidator implements Validator {
 	 * org.springframework.validation.Errors)
 	 */
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "error.empty.userName",
-				ErrorAndMessages.USERNAMENULL);
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "error.empty.userPassword",
-				ErrorAndMessages.PASSWORDNULL);
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userFirstName", "error.empty.userFirstName",
-				ErrorAndMessages.USERFIRSTNAMENULL);
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userLastName", "error.empty.userLastName",
-				ErrorAndMessages.USERLASTNAMENULL);
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userEmailID", "error.empty.userEmail",
-				ErrorAndMessages.EMAILNULL);
-		UserBean credentials = (UserBean) target;
-		if (!credentials.getUserEmailID().matches(
-				"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
-			errors.rejectValue("userEmailID", "error.invalid.userEmail");
+		if(null != target){
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "error.empty.userName",
+					ErrorAndMessages.USERNAMENULL);
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "error.empty.userPassword",
+					ErrorAndMessages.PASSWORDNULL);
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userFirstName", "error.empty.userFirstName",
+					ErrorAndMessages.USERFIRSTNAMENULL);
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userLastName", "error.empty.userLastName",
+					ErrorAndMessages.USERLASTNAMENULL);
+			ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userEmailID", "error.empty.userEmail",
+					ErrorAndMessages.EMAILNULL);
+			UserBean credentials = (UserBean) target;
+			if (null != credentials.getUserEmailID() && !credentials.getUserEmailID().matches(
+					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+				errors.rejectValue("userEmailID", "error.invalid.userEmail");
+			}
+		
 		}
 	}
 
