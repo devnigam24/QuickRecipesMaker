@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.fullerton.cpsc.cpscRecipe.beans.RecipeBean;
+import edu.fullerton.cpsc.cpscRecipe.beans.UserBean;
 import edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants;
 import edu.fullerton.cpsc.cpscRecipe.interfaces.CPSCRecipeController;
 import edu.fullerton.cpsc.cpscRecipe.util.CPSCMailUtil;
+import edu.fullerton.cpsc.cpscRecipe.util.CPSCUtil;
 
 @Controller
 @RequestMapping(RecipeMakerConstants.APP_URL)
@@ -36,7 +38,9 @@ public class ShareRecipeController{
 		}		
 		this.sendMail(mailRecipient,recipe,request);
 		request.setAttribute(RecipeMakerConstants.CUSTOM_MESSAGE, "Mail Sent Successfully");
-		return RecipeMakerConstants.DASHBOARD_PAGE_AJAX;
+		UserBean ub = (UserBean)request.getSession().getAttribute(RecipeMakerConstants.USER_IN_SESSION);
+		CPSCUtil.setValuesInRequest(request, ub);
+		return RecipeMakerConstants.DASHBOARD_PAGE;
 	}
 	
 	public void sendMail(String mailRecipient, RecipeBean recipe, HttpServletRequest request) throws UnsupportedEncodingException, MessagingException{

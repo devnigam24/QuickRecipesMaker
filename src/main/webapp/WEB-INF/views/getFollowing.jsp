@@ -5,7 +5,7 @@
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="<c:url value="/resources/images/devDp.jpg"/>" /> 
+						<img src="<c:url value="/resources/images/boy.png"/>" /> 
 						<span class="card-title">Dev Nigam</span>
 					</div>
 					<div class="card-content">
@@ -32,7 +32,7 @@
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="<c:url value="/resources/images/devDp.jpg"/>" />  <span
+						<img src="<c:url value="/resources/images/girl.png"/>" />  <span
 							class="card-title">Dev Nigam</span>
 					</div>
 					<div class="card-content">
@@ -59,7 +59,7 @@
 			<div class="col s1 m4">
 				<div class="card">
 					<div class="card-image">
-						<img src="<c:url value="/resources/images/devDp.jpg"/>" />  <span
+						<img src="<c:url value="/resources/images/boy.png"/>" />  <span
 							class="card-title">Dev Nigam</span>
 					</div>
 					<div class="card-content">

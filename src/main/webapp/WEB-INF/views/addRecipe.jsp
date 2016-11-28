@@ -47,6 +47,6 @@
 	</div>
 	<div class="row">
 		<a class="waves-effect waves-light btn" onclick="reset('updateProfileForm')">Cancel</a>
-		<a class="waves-effect waves-light btn" id="saveButton" onclick="addRecipe('addRecipeForm')">Submit</a>
+		<a class="waves-effect waves-light btn" id="saveButton" onclick="addRecipe('addRecipeForm')">Create</a>
 	</div>
 </form>
