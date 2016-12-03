@@ -10,7 +10,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
@@ -33,19 +33,19 @@
 		<url-pattern>*.css</url-pattern>
 		<url-pattern>*.jpeg</url-pattern>
 	</servlet-mapping>
-	
-	<!-- extra things not to bother about -->	
-	<context-param>  
-	    <param-name>spring.profiles.active</param-name>  
-	    <param-value>dev</param-value>  
-	</context-param>  
-	<context-param>  
-	    <param-name>spring.profiles.default</param-name>  
-	    <param-value>dev</param-value>  
+
+	<!-- extra things not to bother about -->
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>dev</param-value>
 	</context-param>
-	<context-param>  
-	    <param-name>spring.liveBeansView.mbeanDomain</param-name>  
-	    <param-value>dev</param-value>  
+	<context-param>
+		<param-name>spring.profiles.default</param-name>
+		<param-value>dev</param-value>
+	</context-param>
+	<context-param>
+		<param-name>spring.liveBeansView.mbeanDomain</param-name>
+		<param-value>dev</param-value>
 	</context-param>
 
 </web-app>

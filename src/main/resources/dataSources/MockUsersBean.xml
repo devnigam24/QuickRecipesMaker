@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">	
+	
+	<bean id="devnigam24" class="com.recipe.user.UserBean">
+		<property name="userName" value="devnigam24" />
+		<property name="password" value="devnigam24" />		
+		<property name="userFirstName" value="dev" />
+		<property name="userLastName" value="nigam" />
+		<property name="userEmailID" value="devnigam24@gmail.com" />
+		<property name="aboutMe" value="i am a foodie" />
+		<property name="createRecipeCount" value="2" />
+		<property name="createdRecipe" >
+			<list>
+				<value>chicken</value>
+				<value>edd Curry</value>
+			</list>
+		</property>
+		<property name="sharedRecipeCount" value="2" />		
+		<property name="sharedRecipes">
+			<map>
+				<entry key="dev" value="egg curry" />
+				<entry key="nimmo" value="chicken" />
+			</map>
+		</property>
+		<property name="followersCount" value="1" />
+		<property name="followersList" >
+			<list>
+				<value>nimmo</value>
+			</list>
+		</property>
+		<property name="followingCount" value="3" />
+		<property name="followingList" >
+			<list>
+				<value>abc</value>
+				<value>bcd</value>
+				<value>cde</value>
+			</list>
+		</property>
+		<property name="favouriteRecipeCount" value="1" />
+		<property name="favouriteRecipeList" >
+			<list>
+				<value>chicken</value>
+			</list>
+		</property>
+	</bean>
+	
+	
+</beans>

@@ -1,2 +1,2 @@
-<%@ page import="edu.fullerton.cpsc.cpscRecipe.classes.RecipeMakerConstants" %>
-<% response.sendRedirect(RecipeMakerConstants.APP_URL+"/"+RecipeMakerConstants.HOME_PAGE_URL); %>
+<%@ page import="com.recipe.constants.RecipeFinderConstants" %>
+<% response.sendRedirect(RecipeFinderConstants.APP_URL+"/"+RecipeFinderConstants.HOME_PAGE_URL); %>
