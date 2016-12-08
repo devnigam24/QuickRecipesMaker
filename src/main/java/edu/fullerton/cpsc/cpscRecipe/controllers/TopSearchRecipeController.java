@@ -29,7 +29,7 @@ public class TopSearchRecipeController{
 	@RequestMapping(value = RecipeMakerConstants.TOP_SEARCH_RECIPE, method = RequestMethod.POST)
 	public String handelPost(HttpServletRequest request) throws Exception {
 		String searchQuery = request.getParameter("searchQueries");
-		if(null != searchQuery || !"".equals(searchQuery)){
+		if(null == searchQuery || "".equals(searchQuery)){
 			searchQuery = "chicken";
 		}
 			String urlToHit = "https://api.edamam.com/search?q="+URLEncoder.encode(searchQuery, "UTF-8")+
