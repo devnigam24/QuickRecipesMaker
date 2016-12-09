@@ -6,12 +6,10 @@ function aa(log){
 
     $('.menuButton').sideNav();
 
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
-$(document).ready(function(){
-    
-    setDefautValues();
-    
+  });
+})(jQuery);
+$(document).ready(function(){    
+    setDefautValues();    
     var pageFragmentToOpen = "${pageFragmentToOpen}";
   });
 
@@ -160,4 +158,12 @@ function reset(){
 	});
 	$("#saveButton").addClass("hide");
 	$("#updateButton").removeClass("hide");
+}
+
+function topSearchRecipe(a,b){
+	if($("input[name='searchQueries']").val().length <= 0){
+		return;
+	}else{
+		shareThisRecipe(a);
+	}	
 }

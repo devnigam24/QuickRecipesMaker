@@ -15,13 +15,13 @@
 					<%@ include file="includes/recipeHiddenFields.inc"%>
 					<input type="hidden" name="action" value="searchResults">
 					<div class="col s4">
-						<a onclick="favouriteUnfavouriteAction('favouriteUnfavouriteForm')">Favourite</a>
+						<a onclick="favouriteUnfavouriteAction('favouriteUnfavouriteForm')"><i  class="material-icons">star</i></a>
 					</div>
 				</form>	
 				<form action="shareThisRecipe" id="shareForm">
 					<%@ include file="includes/recipeHiddenFields.inc"%>
 					<div class="col s3">
-						<a class="modal-trigger waves-effect waves-light" href="#share">Share</a>
+						<a class="modal-trigger waves-effect waves-light" href="#share"><i  class="material-icons">email</i></a>
 					</div>
 					<div id="share" class="modal modal-fixed-footer">
 						<div class="modal-content">
@@ -42,7 +42,7 @@
 					</div>
 				</form>
 				<div class="col s5">
-					<a href="//${oneRecipe.moreInfoUrl}" target="_blank">more Info</a>
+					<a href="${oneRecipe.moreInfoUrl}" target="_blank"><i class="material-icons">launch</i></a>
 				</div>			
 			</div>
 			<div class="card-reveal">

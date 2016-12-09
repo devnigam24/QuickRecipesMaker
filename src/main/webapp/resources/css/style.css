@@ -82,10 +82,11 @@ body {
  }
  .velo{
  	max-height: 3em;
-    text-align: -webkit-left;
     vertical-align: middle;
     position: relative;
     padding-top: 10px !important;
+    padding-bottom: 5em !important;
+    text-align: -webkit-center;
  }
  .velo1{
  	height: 3em;

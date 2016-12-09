@@ -5,10 +5,10 @@
 	</c:if>
 	<c:if test="${empty myCustomMessage}">
 	<c:if test="${empty searchRecipeResultArrayList}">  
-		<p>Please Narrow down your search criteria</p>
+		<p style="color: azure;font-size: -webkit-xxx-large;">Please Narrow down your search criteria</p>
 	</c:if>
 	<c:if test="${not empty searchRecipeResultArrayList}"> 
-	<c:forEach items="${searchRecipeResultArrayList}" var="oneRecipe">
+	<c:forEach items="${searchRecipeResultArrayList}" var="oneRecipe"> 
 		<div class="card left col s4">
 			<div class="card-image waves-effect waves-block waves-light">
 				<img class="activator" src="${oneRecipe.imageUrl}">
@@ -29,6 +29,31 @@
 							<i  class="material-icons">star</i></a>
 					</div>
 				</form>
+				<c:if test="${userFirstName != null}">
+					<form action="shareThisRecipe" id="shareForm">
+						<%@ include file="includes/recipeHiddenFields.inc"%>
+						<div class="col s3">
+							<a class="modal-trigger waves-effect waves-light" href="#share"><i  class="material-icons">email</i></a>
+						</div>
+						<div id="share" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								<h4>Share</h4>
+								<div class="row">
+									<div class="input-field col s12">
+										<input id="emailId" name="shareEmailId" type="email"
+											class="active validate" required and aria-required="true">
+										<label for="emailId">Email Id</label>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button class="modal-action modal-close btn-flat">Cancel</button>
+								<button class="btn-flat" onclick="shareThisRecipe('shareForm')"
+									type="submit">Share</button>
+							</div>
+						</div>
+					</form>
+				</c:if>
 				<div class="right col s5">
 					<a href="${oneRecipe.moreInfoUrl}" target="_blank"><i class="material-icons">launch</i></a>
 				</div>			

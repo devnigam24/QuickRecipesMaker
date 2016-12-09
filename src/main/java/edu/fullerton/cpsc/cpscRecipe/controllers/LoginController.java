@@ -44,12 +44,18 @@ public class LoginController extends SignUpLoginSuperClass implements CPSCUserCo
         	query.put("userName", userBean.getUserName());
         	query.put("password", userBean.getPassword());
         	DBObject returnObj = oneUserCollection.findOne(query);
-        	userBean = CPSCUtil.getUserBeanObjectFronJSON(returnObj);
-        	client.close();
-        	System.out.println(returnObj);
-        	request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userBean);
-        	CPSCUtil.setValuesInRequest(request, userBean);
-	        return RecipeMakerConstants.DASHBOARD_PAGE;
+        	if(returnObj != null){
+        		userBean = CPSCUtil.getUserBeanObjectFronJSON(returnObj);
+        		client.close();
+            	request.getSession().setAttribute(RecipeMakerConstants.USER_IN_SESSION, userBean);
+            	CPSCUtil.setValuesInRequest(request, userBean);
+    	        return RecipeMakerConstants.DASHBOARD_PAGE;
+        	}else{
+        		request.setAttribute("myCustomMessage", "Username not found in system You need to sign up first!!");
+        		client.close();
+    	        return RecipeMakerConstants.HOME_PAGE_URL;
+        	}
+        	
 		} else {
 			request.setAttribute("myCustomMessage", "Username not found in system You need to sign up first!!");
 			return RecipeMakerException.throwErrorOnSpecificPageWithoutMessage(request,RecipeMakerConstants.HOME_PAGE_URL);
